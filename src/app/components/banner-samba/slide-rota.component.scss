@@ -1,0 +1,72 @@
+// slide-rota.component.scss
+@use '../shared/banner-slide.shared' as shared;
+
+:host {
+  @extend %slide-base;
+}
+
+.slide-link { @extend %slide-link; }
+.ad-badge   { @extend %ad-badge;   }
+
+.overlay {
+  @extend %overlay;
+  background: linear-gradient(to top, rgba(0, 30, 80, 0.78) 0%, rgba(0, 0, 0, 0.15) 60%);
+}
+
+// ── Tag animada ──────────────────────────────────────────────
+.tag-rota {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  pointer-events: none;
+  z-index: 20;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #00cfff;
+    text-shadow: 0 2px 12px rgba(0, 150, 255, 0.8);
+    margin-bottom: 4px;
+  }
+
+  .titulo {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    animation: shared.water-shimmer 3s ease-in-out infinite;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 12px;
+    background: linear-gradient(90deg, #0077b6, #00b4d8, #90e0ef);
+    background-size: 200% 100%;
+    animation: shared.shimmer 2s linear infinite;
+    border-radius: 25px;
+    padding: 8px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 150, 255, 0.5);
+  }
+}

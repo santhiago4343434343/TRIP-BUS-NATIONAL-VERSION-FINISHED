@@ -1,0 +1,85 @@
+:host {
+  display: block;
+}
+
+.bloco {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+.bloco h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+.bloco p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.grupo {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #f59e0b;
+  margin: 18px 0 12px;
+}
+
+.grid-imgs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+}
+.img-card {
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8fafc;
+  text-align: center;
+  padding-bottom: 10px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.img-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+.thumb {
+  height: 90px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.thumb img {
+  max-width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+}
+.img-card figcaption {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #334155;
+  padding: 8px 6px 4px;
+}
+.fonte-link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+.fonte-link:hover {
+  text-decoration: underline;
+}

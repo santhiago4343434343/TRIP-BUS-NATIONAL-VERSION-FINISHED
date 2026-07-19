@@ -1,0 +1,20 @@
+<h1>Pagamento confirmado! 🎫</h1>
+<p>Olá, <strong><%= @reserva.passageiro %></strong>! Sua passagem foi confirmada com sucesso.</p>
+
+<hr>
+
+<p><strong>Detalhes da passagem:</strong></p>
+<ul>
+  <li>Código: <strong><%= @reserva.codigo %></strong></li>
+  <li>Trajeto: <strong><%= @trip.origin %> → <%= @trip.destination %></strong></li>
+  <li>Empresa: <%= @trip.bus_company %></li>
+  <li>Embarque: <%= @trip.departure_time.respond_to?(:strftime) ? @trip.departure_time.strftime('%d/%m/%Y %H:%M') : @trip.departure_time %></li>
+  <li>Poltrona(s): <%= Array(@reserva.numeros_poltronas).join(', ') %></li>
+  <li>Valor: R$ <%= format('%.2f', @reserva.valor.to_f) %></li>
+</ul>
+
+<p>Você pode acompanhar em <strong>"Minhas Passagens"</strong> no site.</p>
+
+<p>Boa viagem! 🚌</p>
+
+<p><em>Trip Bus National</em></p>

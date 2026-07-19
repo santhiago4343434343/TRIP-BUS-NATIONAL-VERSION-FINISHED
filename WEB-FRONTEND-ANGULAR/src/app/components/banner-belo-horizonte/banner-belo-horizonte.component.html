@@ -1,0 +1,124 @@
+<section class="banner-bh" aria-label="Destino Belo Horizonte" (mouseenter)="stopAutoPlay()"
+  (mouseleave)="startAutoPlay()">
+
+  <div class="slides-track">
+
+    <!-- ── SLIDE 1 · Família ─── -->
+    <div class="slide slide--familia" [class.slide--active]="currentSlide === 0"
+      [attr.aria-hidden]="currentSlide !== 0">
+      <div class="slide__bg">
+        <img src="assets/PESSOAS-FELIZES.JPG" alt="Família feliz viajando para Belo Horizonte" class="slide__img" />
+        <div class="slide__overlay"></div>
+      </div>
+
+      <div class="slide__content slide__content--left">
+        <span class="slide__tag">
+          <i class="fa-solid fa-map-pin"></i>Destino em Destaque
+        </span>
+        <h2 class="slide__headline">
+          Belo Horizonte
+          <em class="slide__headline--accent">te espera.</em>
+        </h2>
+        <p class="slide__subtext">
+          Momentos inesquecíveis começam com a passagem certa.
+        </p>
+
+        <!-- ✅ slide__cta--familia adicionado para aplicar o estilo full-width -->
+        <a href="https://www.buser.com.br/onibus/para/belo-horizonte-mg?utm_source=google&utm_medium=cpc&utm_campaign=%5Bsearch%5D-non-branded-automatizado-marketplace-estado-MG_Passagem-para-Belo-Horizonte-%7C-Cupom_785521331257&utm_term=passagem%20para%20belo%20horizonte&gad_source=1&gad_campaignid=22198742371&gclid=Cj0KCQjwio_RBhDMARIsAJPveNMZNer0_SoCDaICdKLCpG7gIOmEI3Sd-yJmVfANOjolslSjMHBMcsgaAs-tEALw_wcB"
+          target="_blank" rel="noopener noreferrer" class="slide__cta slide__cta--familia">
+          Ver passagens <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 2 · Cidade / Preço ──── -->
+    <div class="slide slide--cidade" [class.slide--active]="currentSlide === 1" [attr.aria-hidden]="currentSlide !== 1">
+      <div class="slide__bg">
+        <img src="assets/BELO-HORIZONTE003.JPG" alt="Praça da Liberdade — Belo Horizonte" class="slide__img" />
+        <div class="slide__overlay slide__overlay--dark"></div>
+      </div>
+
+      <div class="slide__content slide__content--center">
+        <span class="slide__tag slide__tag--gold">
+          <i class="fa-solid fa-ticket"></i>Oferta Especial
+        </span>
+        <h2 class="slide__headline slide__headline--offer">Passagens a partir de</h2>
+        <div class="slide__preco">
+          <span class="slide__preco--cifrao">R$</span>
+          <span class="slide__preco--valor">145</span>
+          <span class="slide__preco--centavos">,89</span>
+        </div>
+        <p class="slide__rota">
+          <i class="fa-solid fa-circle-dot"></i>&nbsp;Saindo de São Paulo
+          <i class="fa-solid fa-arrow-right slide__rota-arrow"></i>
+          <i class="fa-solid fa-location-dot"></i>&nbsp;Belo Horizonte
+        </p>
+        <a href="https://www.clickbus.com.br/onibus/sao-paulo-sp-todos/belo-horizonte-mg-todos" target="_blank"
+          rel="noopener noreferrer" class="slide__cta slide__cta--gold">
+          Comprar agora <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 3 · Viação Santa Maria (Premium) ── -->
+    <div class="slide slide--empresa" [class.slide--active]="currentSlide === 2"
+      [attr.aria-hidden]="currentSlide !== 2">
+      <div class="slide__empresa-bg">
+        <div class="slide__empresa-radial"></div>
+        <div class="slide__empresa-grid"></div>
+        <div class="slide__empresa-vignette"></div>
+      </div>
+
+      <div class="slide__content slide__content--center slide__content--empresa">
+        <div class="slide__empresa-eyebrow">
+          <span class="slide__empresa-line"></span>
+          <p class="slide__empresa-label">Parceiro Oficial da Viagem</p>
+          <span class="slide__empresa-line"></span>
+        </div>
+
+        <div class="slide__logo-wrapper">
+          <div class="slide__logo-ring">
+            <div class="slide__logo-ring-inner">
+              <img src="assets/santa-maria-institucional.jpg" alt="Viação Santa Maria" class="slide__logo" />
+            </div>
+          </div>
+          <div class="slide__logo-glow"></div>
+        </div>
+
+        <p class="slide__empresa-slogan">
+          Conforto e segurança em cada quilômetro.
+        </p>
+
+        <div class="slide__empresa-badges">
+          <span class="slide__badge"><i class="fa-solid fa-shield-halved"></i>Segurança</span>
+          <span class="slide__badge"><i class="fa-solid fa-couch"></i>Conforto</span>
+          <span class="slide__badge"><i class="fa-solid fa-clock"></i>Pontualidade</span>
+        </div>
+
+        <a href="https://www.clickbus.com.br/onibus/sao-paulo-sp-todos/belo-horizonte-mg-todos" target="_blank"
+          rel="noopener noreferrer" class="slide__cta slide__cta--premium">
+          Garantir minha passagem&nbsp;<i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /slides-track -->
+
+  <button class="slider-arrow slider-arrow--prev" (click)="prev()" aria-label="Slide anterior">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="slider-arrow slider-arrow--next" (click)="next()" aria-label="Próximo slide">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+
+  <nav class="slider-dots" aria-label="Navegação de slides">
+    <button *ngFor="let s of slides; let i = index" class="slider-dot" [class.slider-dot--active]="currentSlide === i"
+      (click)="goTo(i)" [attr.aria-label]="'Ir para slide ' + (i + 1)"></button>
+  </nav>
+
+  <div class="slider-progress">
+    <div class="slider-progress__fill" [class.slider-progress__fill--running]="isProgressRunning"
+      [style.animation-duration]="autoPlayInterval + 'ms'"></div>
+  </div>
+
+</section>

@@ -1,0 +1,14 @@
+<h1>Pagamento Confirmado!</h1>
+<p>Olá, o pagamento do seu pedido <strong>#<%= @pedido.id %></strong> foi processado com sucesso.</p>
+
+<hr>
+
+<p><strong>Resumo do Pedido:</strong></p>
+<ul>
+  <li>Valor: R$ <%= @pedido.total %></li>
+  <li>Método: <%= @pedido.payment.upcase %></li>
+</ul>
+
+<p><em>Você receberá novos e-mails com os próximos passos e informações detalhadas sobre o envio.</em></p>
+
+<p>Obrigado por escolher a <strong>Proway Computers</strong>!</p>

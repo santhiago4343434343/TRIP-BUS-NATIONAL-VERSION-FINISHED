@@ -1,0 +1,47 @@
+<div class="container-cancelamento">
+  <h2 class="texto-azul">Cancelar passagem</h2>
+  <p class="texto-azul">Selecione abaixo uma das suas passagens ativas para cancelar.</p>
+
+  <!-- Precisa login -->
+  <div *ngIf="precisaLogin" class="card-reserva">
+    <p class="texto-azul">Você precisa estar logado para gerenciar seus cancelamentos.</p>
+    <a routerLink="/login" class="btn-buscar">Fazer login</a>
+  </div>
+
+  <!-- Carregando -->
+  <p *ngIf="carregando" class="texto-azul">Carregando suas passagens...</p>
+
+  <!-- Sucesso -->
+  <p *ngIf="mensagemSucesso" class="texto-azul"><strong>{{ mensagemSucesso }}</strong></p>
+
+  <!-- Vazio -->
+  <p *ngIf="!carregando && !precisaLogin && reservas.length === 0" class="texto-azul">
+    Você não tem passagens ativas para cancelar.
+    <a routerLink="/tickets" class="link-antt">Ver passagens disponíveis</a>
+  </p>
+
+  <!-- Lista de passagens canceláveis -->
+  <div *ngFor="let r of reservas" class="card-reserva">
+    <h3>{{ r.trip.bus_company }} — {{ r.codigo }}</h3>
+    <div class="dados">
+      <p><strong>Passageiro:</strong> {{ r.passageiro }}</p>
+      <p><strong>Trajeto:</strong> {{ r.trip.origin }} → {{ r.trip.destination }}</p>
+      <p><strong>Data:</strong> {{ r.trip.departure_time | date:'dd/MM/yyyy HH:mm' }}</p>
+      <p><strong>Poltrona(s):</strong> {{ r.poltronas.join(', ') }}</p>
+      <p><strong>Valor:</strong> R$ {{ r.valor | number:'1.2-2' }}</p>
+    </div>
+
+    <div class="alerta-cancelamento">
+      <p>
+        * <i>Atenção: O estorno será realizado conforme as políticas internas da ANTT,
+          visite a <a href="https://portal.antt.gov.br/perguntas-frequentes/-/categories/5786816"
+            target="_blank" rel="noopener" class="link-antt">web page</a> para mais informações.</i>
+      </p>
+      <button (click)="cancelar(r)" [disabled]="cancelandoId === r.id" class="btn-confirmar">
+        {{ cancelandoId === r.id ? 'Cancelando...' : 'Confirmar Cancelamento' }}
+      </button>
+    </div>
+  </div>
+
+  <p *ngIf="erro" class="erro-msg">{{ erro }}</p>
+</div>

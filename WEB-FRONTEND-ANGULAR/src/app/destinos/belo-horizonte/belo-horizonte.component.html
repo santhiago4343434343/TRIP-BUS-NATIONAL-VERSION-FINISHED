@@ -1,0 +1,74 @@
+<section class="bh-geographic-section">
+
+    <div class="geo-info">
+        <h2 class="pulsing-headline">
+            Visite Minas <span class="highlight-tag">#D@s Gerais</span>
+        </h2>
+    </div>
+
+    <div class="grid-layout-container">
+
+        <!-- COLUNA ESQUERDA -->
+        <div class="sidebar-banners left-side">
+
+            <div class="side-banner banner-l1">
+                <div class="banner-slider">
+
+                    <!-- Slide 1 · Serras → rota interna -->
+                    <!-- ✅ CORRETO — link externo usa href + target="_blank" -->
+                    <a href="https://www.minasgerais.com.br/pt/atracoes/ervalia/parque-estadual-serra-do-brigadeiro-0"
+                        target="_blank" rel="noopener noreferrer" class="slide-link" [class.active]="slideAtual === 0"
+                        aria-label="Conhecer as Serras de Minas">
+                        <img src="assets/MINAS-SERRA-BRIGADEIRO.JPG" alt="Serras de Minas" class="slide-img" />
+                    </a>
+
+                    <!-- Slide 2 · Institucional → rota interna -->
+                    <a routerLink="/destinos/minas-gerais" class="slide-link" [class.active]="slideAtual === 1"
+                        aria-label="Conhecer Minas Gerais">
+                        <img src="assets/MINAS-GERAIS-INSTITUCIONAL.JPG" alt="Serra do Brigadeiro" class="slide-img" />
+                    </a>
+
+                    <!-- Slide 3 · Governo → link externo -->
+                    <a href="https://www.mg.gov.br" target="_blank" rel="noopener noreferrer" class="slide-link"
+                        [class.active]="slideAtual === 2" aria-label="Visitar site do Governo de Minas">
+                        <img src="assets/minas.jpeg" alt="Governo de Minas" class="slide-img slide-img-emblema" />
+                    </a>
+
+                </div>
+                <div class="banner-overlay-text">
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="side-banner banner-l2">
+                <app-banner-belo-horizonte></app-banner-belo-horizonte>
+            </div>
+
+        </div>
+        <!-- FIM COLUNA ESQUERDA -->
+
+        <!-- COLUNA CENTRAL: MAPA -->
+        <div class="map-wrapper">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5374255.852021698!2d-44.619318043152774!3d-18.0660287903433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbr!4v1779986087274!5m2!1sen!2sbr"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <!-- FIM COLUNA CENTRAL -->
+
+        <!-- COLUNA DIREITA -->
+        <div class="sidebar-banners right-side">
+            <div class="side-banner banner-r1">
+                <app-banner-samba></app-banner-samba>
+            </div>
+            <div class="side-banner banner-r2">
+                <app-banner-buser4></app-banner-buser4>
+            </div>
+        </div>
+        <!-- FIM COLUNA DIREITA -->
+
+    </div>
+    <!-- FIM grid-layout-container -->
+
+</section>

@@ -1,0 +1,68 @@
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.banner h1 {
+    animation: blink 2s infinite;
+}
+
+.banner p {
+    animation: blink 3s infinite alternate;
+}
+
+.banner {
+    @apply relative w-full h-[500px] rounded-lg overflow-hidden;
+
+    img {
+        @apply object-cover w-full h-full;
+    }
+
+    h1 {
+        @apply text-5xl font-bold text-white drop-shadow-lg;
+        animation: blink 2s infinite;
+    }
+
+    p {
+        @apply text-lg text-gray-200;
+        animation: blink 3s infinite alternate;
+    }
+
+    a {
+        @apply px-6 py-3 bg-orange-500 hover:bg-orange-600 rounded-md text-white font-semibold transition;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.banner-img {
+    transform: scale(1);
+    animation: zoomBackground 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBackground {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2); // aumenta 20% para dar o zoom
+    }
+}

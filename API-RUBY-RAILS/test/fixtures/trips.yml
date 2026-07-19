@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bus_company: MyString
+  origin: MyString
+  destination: MyString
+  departure_time: 2026-05-09 04:00:06
+  price: 9.99
+  seats_available: 1
+
+two:
+  bus_company: MyString
+  origin: MyString
+  destination: MyString
+  departure_time: 2026-05-09 04:00:06
+  price: 9.99
+  seats_available: 1

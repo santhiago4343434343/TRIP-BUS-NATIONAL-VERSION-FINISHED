@@ -1,0 +1,131 @@
+<section class="banner relative w-full h-[580px] overflow-hidden">
+  <img src="assets/riodejaneiro.jpg" alt="Rio de Janeiro"
+    class="absolute inset-0 w-full h-full object-cover banner-img" />
+
+  <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white">
+
+    <!-- ✅ WRAPPER .title-rio adicionado aqui -->
+    <div class="title-rio">
+      <h1
+        class="text-5xl md:text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-pink-500">
+        Rio de Janeiro
+      </h1>
+    </div>
+
+    <p class="max-w-xl text-lg md:text-xl mb-6 text-green-300 font-semibold">
+      A queridinha do samba!
+    </p>
+
+    <div class="w-full max-w-4xl px-12 overflow-visible relative">
+
+      <button (click)="currentSlide = (currentSlide === 0 ? 3 : currentSlide - 1)"
+        class="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold transition">
+        ‹
+      </button>
+
+      <div class="w-full overflow-hidden relative">
+        <div class="flex transition-transform duration-700 ease-in-out"
+          [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+
+          <!-- SLIDE 1 — União -->
+          <div class="banner-uniao min-w-full flex flex-col items-center justify-center p-6">
+            <a href="https://www.uniao.com.br" target="_blank" rel="noopener noreferrer" class="banner-link"
+              aria-label="Visitar site da União"></a>
+            <img src="assets/logo-uniao.png" alt="" class="handshake-slide" />
+            <img src="assets/uniao-logo.webp" alt="Expresso União"
+              class="w-64 h-40 object-contain rounded-lg shadow-lg mb-6" />
+            <div class="space-y-4 text-center">
+              <h3 class="text-3xl font-bold animate-blink">Viaje com a União!</h3>
+              <p class="text-xl text-green-300 animate-blink-delay">Sonhou em um destino? Levamos você.</p>
+              <a href="https://www.expressouniao.com.br/?gad_source=1&gad_campaignid=20679592529&gclid=Cj0KCQjw2_TQBhCnARIsAF3-Xhw_KEqs02JgZ95Ky9zw6YK_i5zsAmYP3rbW2UfLPRZBNc4MkRUuFTQaAu5dEALw_wcB"
+                target="_blank" rel="noopener noreferrer"
+                class="btn-interno px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-md text-white text-xl font-bold transition animate-blink-delay2 shadow-lg">
+                Clique e saiba mais
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 — Águia Branca -->
+          <div class="banner-aguia-branca min-w-full flex flex-col items-center justify-center p-4">
+            <a href="https://www.aguiabranca.com.br" target="_blank" rel="noopener noreferrer" class="banner-link"
+              aria-label="Visitar site da Águia Branca"></a>
+            <div class="faixa-topo">
+              <img src="assets/aguia-branca.png" alt="Logo Águia Branca" class="faixa-logo" />
+              <span class="faixa-tag faixa-angra">#ANGRA</span>
+              <span class="faixa-tag faixa-rio">#RIO</span>
+            </div>
+            <div class="frase-box text-center mt-3">
+              <h3 class="text-3xl font-extrabold animate-pulse-green">Vai pro #rio?</h3>
+              <p class="text-xl font-semibold animate-pulse-green">Corra para #whiteeagle</p>
+              <a href="https://www.aguiabranca.com.br/marca" target="_blank" rel="noopener noreferrer"
+                class="btn-interno block mt-4 px-8 py-3 bg-white text-blue-700 text-xl font-bold rounded-md shadow-lg">
+                Acesse já!
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 — Windsor Barra -->
+          <div class="banner-angrainn min-w-full flex flex-col items-center justify-center relative">
+            <img src="assets/angrainn-hotel.jpg" alt="angrainn hotel"
+              class="absolute inset-0 w-full h-full object-cover banner-img" />
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="angrainn-glass-card relative z-10">
+              <div class="angrainn-topo">
+                <div class="angrainn-nome-bloco">
+                  <span class="angrainn-nome">Windsor Barra</span>
+                  <div class="angrainn-stars">★★★★☆</div>
+                </div>
+                <span class="angrainn-badge">4 estrelas</span>
+              </div>
+              <div class="angrainn-detalhes">
+                <span class="detalhe-item"><i class="ti ti-map-pin"></i> Barra da Tijuca</span>
+                <span class="detalhe-item"><i class="ti ti-waves"></i> Praia</span>
+                <span class="detalhe-item"></span>
+                <span class="detalhe-item"><i class="ti ti-swimming"></i> Piscina</span>
+              </div>
+              <div class="angrainn-preco">A partir de <strong>R$ 450</strong>/nt</div>
+              <a href="https://www.nacionalinn.com.br/hoteis/nacional-inn-angra-dos-reis?gad_source=1" target="_blank"
+                rel="noopener noreferrer" class="angrainn-btn">
+                Reservar agora →
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 4 — Pousadas Paraty -->
+          <div class="banner-paraty min-w-full flex flex-col items-center justify-center relative">
+            <div class="paraty-slider">
+              <img src="assets/pousada-corsario-paraty.jpg" alt="Pousada Corsário Paraty" class="slider-img" />
+              <img src="assets/pousada-aconchego-paraty.jpg" alt="Pousada Aconchego Paraty" class="slider-img" />
+            </div>
+            <div class="absolute inset-0 bg-black/40 z-0"></div>
+            <div class="angrainn-glass-card relative z-10">
+              <div class="angrainn-topo">
+                <div class="angrainn-nome-bloco">
+                  <span class="angrainn-nome">Pousadas Paraty</span>
+                  <div class="angrainn-stars">★★★★★</div>
+                </div>
+                <span class="angrainn-badge">Pousada Premium</span>
+              </div>
+              <div class="angrainn-detalhes">
+                <span class="detalhe-item"><i class="ti ti-map-pin"></i> Centro Histórico</span>
+                <span class="detalhe-item"><i class="ti ti-waves"></i> Praia</span>
+                <span class="detalhe-item"><i class="ti ti-swimming"></i> Piscina</span>
+              </div>
+              <div class="angrainn-preco">A partir de <strong>R$ 380</strong>/nt</div>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="angrainn-btn">
+                Reservar agora →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button (click)="currentSlide = (currentSlide === 3 ? 0 : currentSlide + 1)"
+        class="absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold transition">
+        ›
+      </button>
+
+    </div>
+  </div>
+</section>

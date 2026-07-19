@@ -1,0 +1,87 @@
+:host {
+  display: block;
+}
+
+.passagem-card {
+  transition: box-shadow 0.15s ease;
+}
+.passagem-card:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+.passagem-card.cancelada {
+  opacity: 0.7;
+  background: #f8fafc;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+.badge-ok {
+  background: #d1fae5;
+  color: #047857;
+}
+.badge-cancel {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.badge-pend {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.btn-cancelar {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  transition: filter 0.15s ease;
+}
+.btn-cancelar:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+.btn-cancelar:disabled {
+  background: #cbd5e1;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-continuar {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+  transition: filter 0.15s ease;
+}
+.btn-continuar:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+.btn-continuar:disabled {
+  background: #cbd5e1;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ── Abas (Ônibus / Hotéis) ── */
+.abas {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+}
+.aba-btn {
+  padding: 10px 18px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #64748b;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+.aba-btn:hover {
+  color: #334155;
+}
+.aba-btn.ativa {
+  color: #f59e0b;
+  border-bottom-color: #f59e0b;
+}

@@ -1,0 +1,58 @@
+// ── Validação de campos ───────────────────────────────────────────────────────
+
+.mensagem-erro {
+  @apply text-red-600 text-sm mt-1;
+}
+
+input.valid,
+textarea.valid {
+  @apply border-2 border-green-500;
+}
+
+input.invalid,
+textarea.invalid {
+  @apply border-2 border-red-600;
+}
+
+// ── Contador de caracteres ────────────────────────────────────────────────────
+
+.contador-caracteres {
+  @apply text-sm mt-1 text-gray-500 text-right;
+}
+
+.alerta {
+  @apply text-yellow-500;
+}
+
+.limite {
+  @apply text-red-600;
+}
+
+// ── Mapa do Google Maps ───────────────────────────────────────────────────────
+
+.mapa-container {
+  @apply rounded-lg overflow-hidden border border-gray-200;
+  min-height: 260px;
+  height: 100%;
+
+  iframe {
+    min-height: 260px;
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+}
+
+// ── Responsivo: empilha no mobile ─────────────────────────────────────────────
+
+@media (max-width: 767px) {
+  .mapa-container {
+    min-height: 220px;
+    height: 220px;
+
+    iframe {
+      min-height: 220px;
+      height: 220px;
+    }
+  }
+}

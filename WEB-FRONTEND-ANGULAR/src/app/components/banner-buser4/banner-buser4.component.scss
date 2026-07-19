@@ -1,0 +1,375 @@
+// ========================================
+// VARIÁVEIS BUSER
+// ========================================
+$buser-pink: #E91E8C;
+$buser-pink-dark: #C4156F;
+$buser-blue: #0099D4;
+$white: #FFFFFF;
+$dark: #1A1A2E;
+$shadow: rgba(0, 0, 0, 0.45);
+
+// ========================================
+// WRAPPER PRINCIPAL
+// ========================================
+.buser-banner-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px $shadow;
+    background: $dark;
+    cursor: pointer;
+
+    &:hover .arrow {
+        opacity: 1;
+    }
+}
+
+// ========================================
+// CONTAINER DOS SLIDES (move horizontalmente)
+// ========================================
+.slides-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+// ========================================
+// SLIDE BASE
+// ========================================
+.slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+// Imagem de fundo
+.slide-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.05);
+    transition: transform 6s ease;
+}
+
+// Overlay colorido sobre a imagem
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    &.overlay-blue {
+        background: linear-gradient(110deg,
+                rgba(0, 153, 212, 0.78) 0%,
+                rgba(0, 80, 140, 0.55) 55%,
+                rgba(0, 0, 0, 0.15) 100%);
+    }
+
+    &.overlay-pink {
+        background: linear-gradient(110deg,
+                rgba(233, 30, 140, 0.82) 0%,
+                rgba(180, 10, 100, 0.6) 50%,
+                rgba(0, 0, 0, 0.2) 100%);
+    }
+}
+
+// ========================================
+// CONTEÚDO TEXTUAL DO SLIDE
+// ========================================
+.slide-content {
+    position: relative;
+    z-index: 2;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 75%;
+
+    &.content-left {
+        align-items: flex-start;
+    }
+
+    &.content-right {
+        align-items: flex-start;
+    }
+}
+
+// Badge topo
+.badge-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.22);
+    color: $white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(4px);
+
+    &.buser-badge {
+        background: rgba(255, 255, 255, 0.18);
+    }
+}
+
+// Título principal
+.slide-headline {
+    margin: 0;
+    font-family: 'Montserrat', 'Arial Black', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: $white;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+
+    .highlight-price {
+        color: #FFE066;
+        display: block;
+    }
+
+    .highlight-buser {
+        color: $white;
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.6);
+    }
+}
+
+// Subtexto
+.slide-subtext {
+    margin: 0;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+// Botão CTA
+.slide-cta {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 8px 18px;
+    background: $white;
+    color: $buser-blue;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+        background: #FFE066;
+        color: $dark;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    &.cta-pink {
+        color: $buser-pink;
+
+        &:hover {
+            background: $buser-pink;
+            color: $white;
+        }
+    }
+}
+
+// ========================================
+// CAIXA DE PREÇO (Slide 2)
+// ========================================
+.price-box {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 8px 14px;
+    gap: 2px;
+}
+
+.price-label {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: $white;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+    .price-cents {
+        font-size: 1rem;
+        font-weight: 700;
+        vertical-align: bottom;
+        margin-bottom: 4px;
+        display: inline-block;
+    }
+}
+
+// ========================================
+// SLIDE 3: LOGO ESTÁTICA
+// ========================================
+.slide-3 {
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-logo-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, $buser-pink 0%, $buser-pink-dark 60%, #8B0057 100%);
+
+    // Círculos decorativos estilo Buser
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    &::before {
+        width: 220px;
+        height: 220px;
+        top: -60px;
+        left: -60px;
+    }
+
+    &::after {
+        width: 160px;
+        height: 160px;
+        bottom: -50px;
+        right: -40px;
+    }
+}
+
+.logo-center-wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+.logo-static {
+    width: 160px;
+    height: auto;
+    mix-blend-mode: screen;
+}
+
+
+
+.logo-tagline {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.04);
+        opacity: 0.95;
+    }
+}
+
+// ========================================
+// DOTS DE NAVEGAÇÃO
+// ========================================
+.nav-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    &.active {
+        background: $white;
+        width: 22px;
+        border-radius: 4px;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.75);
+    }
+}
+
+// ========================================
+// SETAS
+// ========================================
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: $white;
+    font-size: 1.6rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: all 0.25s ease;
+    line-height: 1;
+    padding: 0;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.35);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    &.arrow-prev {
+        left: 10px;
+    }
+
+    &.arrow-next {
+        right: 10px;
+    }
+}

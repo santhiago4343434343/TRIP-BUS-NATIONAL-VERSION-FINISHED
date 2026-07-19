@@ -1,0 +1,53 @@
+<!-- DESTINO: src/app/pages/login/login.component.html -->
+<section class="login-praia min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="login-card w-full max-w-md p-8 md:p-10 rounded-2xl shadow-2xl">
+
+        <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white text-center mb-2">
+            Bem-vindo de volta
+        </h2>
+        <p class="text-yellow-300 text-center font-semibold mb-8">
+            Entre para continuar sua viagem 🌴
+        </p>
+
+        <form (ngSubmit)="entrar()" #f="ngForm" class="flex flex-col gap-5">
+
+            <div>
+                <label for="email" class="label-tropical">E-mail</label>
+                <input id="email" type="email" name="email" [(ngModel)]="email" required email autocomplete="email"
+                    placeholder="voce@exemplo.com" class="input-tropical" />
+            </div>
+
+            <div>
+                <label for="senha" class="label-tropical">Senha</label>
+                <div class="relative">
+                    <input id="senha" [type]="mostrarSenha ? 'text' : 'password'" name="senha" [(ngModel)]="senha"
+                        required minlength="6" autocomplete="current-password" placeholder="••••••••"
+                        class="input-tropical" style="padding-right: 3rem;" />
+                    <button type="button" (click)="mostrarSenha = !mostrarSenha"
+                        [attr.aria-label]="mostrarSenha ? 'Ocultar senha' : 'Mostrar senha'"
+                        class="absolute inset-y-0 right-0 flex items-center px-4 text-slate-500 hover:text-slate-700">
+                        <svg *ngIf="!mostrarSenha" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.036 12.322a1 1 0 010-.644C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .644C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg><svg *ngIf="mostrarSenha" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c2.5 3.4 6 5.2 9 5.2s6.5-1.8 9-5.2 M6 13.6l-1.2 2.2 M12 15.2v2.4 M18 13.6l1.2 2.2" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <p *ngIf="erro" class="erro-tropical">{{ erro }}</p>
+
+            <button type="submit" class="btn-entrar-tropical w-full" [disabled]="f.invalid || carregando">
+                {{ carregando ? 'ENTRANDO...' : 'ENTRAR' }}
+            </button>
+
+            <p class="text-center mt-3">
+                <a routerLink="/forgot-password" class="text-yellow-300 hover:underline text-sm font-semibold">
+                    Forgot your password?
+                </a>
+            </p>
+
+        </form>
+
+        <a routerLink="/home"
+            class="block text-center text-white/80 hover:text-yellow-300 font-semibold mt-6 transition-colors">
+            ← Voltar para a home
+        </a>
+    </div>
+</section>

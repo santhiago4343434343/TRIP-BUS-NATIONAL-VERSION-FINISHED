@@ -1,0 +1,86 @@
+<footer class="footer bg-gray-100 p-6">
+  <div class="footer__container flex flex-wrap justify-between items-center">
+
+    <!-- Bloco esquerdo: LOGO -->
+    <section class="flex flex-col items-start">
+      <!-- Usando routerLink para a home em vez de href -->
+      <a routerLink="/home" class="flex items-center gap-4 mb-2 group cursor-pointer no-underline">
+        <!-- Ícone da Palmeira (Caminho corrigido para assets) -->
+        <img src="assets/img/coqueiro011.png" alt="Trip Bus Logo"
+          class="h-14 w-auto drop-shadow-md group-hover:scale-105 transition-transform">
+
+        <!-- Texto do Logo -->
+        <h2 class="logo-text text-3xl font-black uppercase tracking-tighter group-hover:opacity-80 text-[#000080]">
+          TRIP BUS NATIONAL
+        </h2>
+      </a>
+
+      <p class="footer__about-text text-gray-500 text-xs ml-1">CNPJ: 43.434.343/9999-99</p>
+    </section>
+
+    <!-- Seção Central: Links Úteis -->
+    <div class="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 px-6 my-6 md:my-0">
+
+      <!-- Coluna 1: Institucional -->
+      <div>
+        <h3 class="font-bold text-[#000080] mb-3 text-sm uppercase">Institucional</h3>
+        <ul class="text-xs space-y-2 text-gray-600">
+          <li><a routerLink="/sobre" class="hover:text-orange-500 transition cursor-pointer">Sobre Nós</a></li>
+          <li><a routerLink="/trabalhe-conosco" class="hover:text-orange-500 transition cursor-pointer">Trabalhe
+              Conosco</a></li>
+          <li><a routerLink="/privacidade" class="hover:text-orange-500 transition cursor-pointer">Privacidade</a></li>
+          <li><a routerLink="/termos-uso" class="hover:text-orange-500 transition cursor-pointer">Termos Uso</a></li>
+          <li><a routerLink="/uso-de-imagens" class="hover:text-orange-500 transition cursor-pointer">Uso de Imagens (LGPD)</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 2: Ajuda e Suporte -->
+      <div>
+        <h3 class="font-bold text-[#000080] mb-3 text-sm uppercase">Atendimento</h3>
+        <ul class="text-xs space-y-2 text-gray-600">
+          <li><a routerLink="/central-ajuda"
+              class="hover:text-orange-500 transition font-semibold cursor-pointer">Central de Ajuda</a></li>
+          <li><a routerLink="/talk-to-us" class="hover:text-orange-500 transition cursor-pointer">Fale Conosco</a></li>
+          <li><a routerLink="/cancelamentos" class="hover:text-orange-500 transition cursor-pointer">Cancelamentos</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Destinos Populares -->
+      <div class="hidden md:block">
+        <h3 class="font-bold text-[#000080] mb-3 text-sm uppercase">Destinos Populares</h3>
+        <ul class="text-xs space-y-2 text-gray-600">
+          <!-- Links dinâmicos usando o parâmetro :estado -->
+          <li><a [routerLink]="['/destinos', 'sao-paulo']" class="hover:text-orange-500 transition cursor-pointer">São
+              Paulo</a></li>
+          <li><a [routerLink]="['/destinos', 'rio-de-janeiro']"
+              class="hover:text-orange-500 transition cursor-pointer">Rio de
+              Janeiro</a></li>
+          <li><a [routerLink]="['/destinos', 'belo-horizonte']"
+              class="hover:text-orange-500 transition cursor-pointer">Belo
+              Horizonte</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bloco direito: Selos de Confiança -->
+    <div class="flex items-center space-x-4">
+      <a href="https://www.ebit.com.br" target="_blank" rel="noopener noreferrer" aria-label="Selo Ebit">
+        <img src="icons/ebit.jpeg" alt="Selo Ebit"
+          class="h-20 w-auto cursor-pointer transition transform hover:scale-105" />
+      </a>
+
+      <a href="https://www.reclameaqui.com.br" target="_blank" rel="noopener noreferrer" aria-label="Selo Reclame Aqui">
+        <img src="icons/reclame-aqui.png" alt="Selo Reclame Aqui"
+          class="h-20 w-auto cursor-pointer transition transform hover:scale-105" />
+      </a>
+    </div>
+  </div>
+
+  <!-- Contato:: movido para talk-to-us.components -->
+
+  <!-- Direitos autorais -->
+  <section class="footer__copyright text-center mt-6 text-gray-400 text-xs">
+    &copy; 2026 TRIP BUS NATIONAL. Todos os direitos reservados.
+  </section>
+</footer>

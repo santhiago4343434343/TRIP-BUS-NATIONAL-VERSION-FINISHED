@@ -1,0 +1,53 @@
+<!-- ============================================================
+DESTINO: src/app/header/header.component.html
+AÇÃO: SUBSTITUIR o arquivo inteiro por este
+============================================================ -->
+<header class="header-praia h-74 flex items-center px-6 justify-between shadow-2xl sticky top-0 z-50">
+  <!-- Logo -->
+  <a routerLink="/home"
+    class="flex items-center gap-3 border-l-8 border-[#FFD700] pl-4 bg-black/40 p-2 rounded-r-lg backdrop-blur-md cursor-pointer">
+    <img src="assets/coqueiro011.png" alt="Logo Trip Bus"
+      class="w-32 h-32 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+    <h1 class="logo-text text-4xl md:text-6xl font-black tracking-tighter uppercase">
+      Trip Bus National
+    </h1>
+  </a>
+  <!-- Navegação -->
+  <nav class="hidden md:flex items-center gap-6">
+    <a routerLink="/tickets" class="nav-btn-tropical cursor-pointer">
+      <i class="fa-solid fa-bus text-yellow-400"></i> PASSAGENS
+    </a>
+    <a routerLink="/hotel" class="nav-btn-tropical relative cursor-pointer">
+      <i class="fa-solid fa-hotel text-cyan-400"></i> HOTÉIS
+      <span class="novo-badge-neon">NOVO!</span>
+    </a>
+  </nav>
+  <div class="flex items-center gap-6">
+    <!-- ===== LOGADO ===== -->
+    <div *ngIf="authService.isLoggedIn(); else btnEntrar" class="relative">
+      <div class="usuario-logado flex items-center gap-3 cursor-pointer select-none" (click)="alternarMenu()">
+        <i class="fa-solid fa-circle-user text-4xl text-yellow-400"></i>
+        <div class="flex flex-col leading-tight">
+          <span class="text-yellow-300 text-xs font-black uppercase tracking-wider">My Account</span>
+          <span class="text-white font-bold uppercase">{{ authService.user?.name }}</span>
+        </div>
+        <i class="fa-solid fa-chevron-down text-white text-sm"></i>
+      </div>
+      <div *ngIf="menuAberto" class="menu-conta">
+        <a routerLink="/minha-conta" (click)="fecharMenu()" class="menu-conta-item">
+          <i class="fa-solid fa-id-card text-yellow-400"></i> Personal Data
+        </a>
+        <a routerLink="/historico" (click)="fecharMenu()" class="menu-conta-item">
+          <i class="fa-solid fa-ticket text-yellow-400"></i> Minhas Passagens
+        </a>
+        <button type="button" (click)="sair()" class="menu-conta-item menu-conta-sair">
+          <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+        </button>
+      </div>
+    </div>
+    <!-- ===== DESLOGADO ===== -->
+    <ng-template #btnEntrar>
+      <button [routerLink]="['/login']" class="btn-entrar-tropical">SIGN IN</button>
+    </ng-template>
+  </div>
+</header>

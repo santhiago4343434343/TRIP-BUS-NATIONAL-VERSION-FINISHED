@@ -1,0 +1,731 @@
+// ================================================================
+// banner-belo-horizonte.component.scss
+// ================================================================
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+// ─────────────────────────────────────────
+// §1  TOKENS
+// ─────────────────────────────────────────
+$bh-green: #1B5E20;
+$bh-green-mid: #2E7D32;
+$bh-green-light: #43A047;
+$bh-gold: #F9A825;
+$bh-gold-bright: #FFD54F;
+$bh-gold-dark: #F57F17;
+$bh-dark: #060D07;
+$bh-dark-mid: #0C1A0D;
+$bh-white: #FFFFFF;
+
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
+$slide-radius: 20px;
+
+// ─────────────────────────────────────────
+// §2  MIXINS
+// ─────────────────────────────────────────
+@mixin fill {
+    @apply absolute inset-0;
+}
+
+@mixin center {
+    @apply flex items-center justify-center;
+}
+
+@mixin glass($alpha: 0.12) {
+    background: rgba($bh-white, $alpha);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba($bh-white, $alpha * 2.5);
+}
+
+// ─────────────────────────────────────────
+// §3  KEYFRAMES
+// ─────────────────────────────────────────
+@keyframes kenBurnsIn {
+    from {
+        transform: scale(1.0) translate(0, 0);
+    }
+
+    to {
+        transform: scale(1.14) translate(-1%, -0.8%);
+    }
+}
+
+@keyframes kenBurnsOut {
+    from {
+        transform: scale(1.14) translate(1%, 0.5%);
+    }
+
+    to {
+        transform: scale(1.0) translate(0, 0);
+    }
+}
+
+@keyframes contentFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba($bh-gold, .15), 0 0 30px rgba($bh-gold, .10);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba($bh-gold, 0), 0 0 55px rgba($bh-gold, .28);
+    }
+}
+
+@keyframes logoGlowSpin {
+    from {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.15);
+        opacity: 0.3;
+    }
+}
+
+@keyframes progressFill {
+    from {
+        width: 0%;
+        opacity: 1;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes dotExpand {
+
+    0%,
+    100% {
+        width: 28px;
+    }
+
+    50% {
+        width: 34px;
+    }
+}
+
+// ─────────────────────────────────────────
+// §4  BANNER WRAPPER
+// ─────────────────────────────────────────
+.banner-bh {
+    @apply relative w-full overflow-hidden;
+    height: 500px;
+    border-radius: $slide-radius;
+    background: $bh-dark;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, .07),
+        0 16px 48px rgba(0, 0, 0, .22),
+        0 2px 0 rgba($bh-gold, .08) inset;
+
+    @media (max-width: 768px) {
+        height: 460px;
+        border-radius: 14px;
+    }
+
+    @media (max-width: 480px) {
+        height: 430px;
+        border-radius: 12px;
+    }
+}
+
+// ─────────────────────────────────────────
+// §5  SLIDES TRACK
+// ─────────────────────────────────────────
+.slides-track {
+    @include fill;
+}
+
+// ─────────────────────────────────────────
+// §6  SLIDE BASE
+// ─────────────────────────────────────────
+.slide {
+    @apply absolute inset-0 flex items-center justify-center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.75s $ease-in-out-sine;
+
+    &--active {
+        opacity: 1;
+        pointer-events: auto;
+
+        .slide__img {
+            animation: kenBurnsIn 6.5s $ease-out-expo forwards;
+        }
+
+        .slide__content>* {
+            animation: contentFadeUp 0.55s $ease-out-expo backwards;
+
+            @for $i from 1 through 7 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{($i - 1) * 0.09 + 0.35}s;
+                }
+            }
+        }
+    }
+
+    &--cidade.slide--active .slide__img {
+        animation: kenBurnsOut 6.5s $ease-out-expo forwards;
+    }
+}
+
+// ─────────────────────────────────────────
+// §7  BACKGROUND IMAGE
+// ─────────────────────────────────────────
+.slide__bg {
+    @include fill;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.slide__img {
+    @apply w-full h-full block;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+// ─────────────────────────────────────────
+// §8  OVERLAYS
+// ─────────────────────────────────────────
+.slide__overlay {
+    @include fill;
+    z-index: 1;
+    background: linear-gradient(145deg, rgba($bh-green, .78) 0%, rgba($bh-dark, .60) 100%);
+
+    &--dark {
+        background: linear-gradient(178deg,
+                rgba($bh-dark, .18) 0%, rgba($bh-dark, .72) 50%, rgba($bh-dark, .94) 100%);
+    }
+}
+
+// ─────────────────────────────────────────
+// §9  CONTEÚDO DOS SLIDES
+// ─────────────────────────────────────────
+.slide__content {
+    @apply relative flex flex-col;
+    z-index: 2;
+    padding: 2rem 2.5rem;
+    width: 100%;
+    max-width: 460px;
+
+    &--left {
+        @apply items-start;
+        align-self: flex-end;
+        margin-bottom: 4.5rem; // ← afasta o botão da borda inferior
+
+        @media (max-width: 480px) {
+            margin-bottom: 4rem; // ← mesmo afastamento no mobile
+            padding: 1.25rem 1.5rem;
+        }
+    }
+
+    &--center {
+        @apply items-center text-center;
+    }
+
+    &--empresa {
+        max-width: 540px;
+        padding: 1.2rem 2.5rem 1.8rem;
+    }
+}
+
+// ─────────────────────────────────────────
+// §10  TAG
+// ─────────────────────────────────────────
+.slide__tag {
+    @apply inline-flex items-center;
+    gap: 6px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: $bh-white;
+    border-radius: 20px;
+    padding: 4px 13px;
+    margin-bottom: 0.9rem;
+    @include glass(0.15);
+
+    i {
+        font-size: 0.68rem;
+    }
+
+    &--gold {
+        background: rgba($bh-gold, .18);
+        border-color: rgba($bh-gold, .45);
+        color: $bh-gold-bright;
+        backdrop-filter: blur(6px);
+    }
+}
+
+// ─────────────────────────────────────────
+// §11  HEADLINE
+// ─────────────────────────────────────────
+.slide__headline {
+    @apply flex flex-col;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: $bh-white;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba($bh-dark, .5);
+
+    &--accent {
+        font-style: normal;
+        font-size: 2.6rem;
+        color: $bh-gold;
+        letter-spacing: -0.04em;
+    }
+
+    &--offer {
+        @apply flex-row items-center justify-center;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba($bh-white, .65);
+        margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.7rem;
+
+        &--accent {
+            font-size: 2rem;
+        }
+    }
+}
+
+// ─────────────────────────────────────────
+// §12  SUBTEXTO
+// ─────────────────────────────────────────
+.slide__subtext {
+    font-size: 0.87rem;
+    color: rgba($bh-white, .78);
+    margin: 0 0 1.6rem;
+    line-height: 1.6;
+    max-width: 270px;
+}
+
+// ─────────────────────────────────────────
+// §13  PREÇO (Slide 2)
+// ─────────────────────────────────────────
+.slide__preco {
+    @apply flex items-start justify-center;
+    line-height: 1;
+    margin: 0.15rem 0 0.55rem;
+
+    &--cifrao {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: $bh-gold;
+        align-self: flex-start;
+        margin-top: 0.7rem;
+    }
+
+    &--valor {
+        font-size: 5rem;
+        font-weight: 900;
+        color: $bh-white;
+        letter-spacing: -0.045em;
+        line-height: 1;
+        text-shadow: 0 0 40px rgba($bh-gold, .25), 0 4px 24px rgba($bh-dark, .4);
+    }
+
+    &--centavos {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: rgba($bh-white, .55);
+        align-self: flex-end;
+        margin-bottom: 0.6rem;
+    }
+}
+
+// ─────────────────────────────────────────
+// §14  ROTA (Slide 2)
+// ─────────────────────────────────────────
+.slide__rota {
+    @apply flex items-center justify-center flex-wrap;
+    gap: 5px;
+    font-size: 0.77rem;
+    color: rgba($bh-white, .68);
+    margin: 0 0 1.45rem;
+
+    i {
+        font-size: 0.7rem;
+    }
+
+    .slide__rota-arrow {
+        margin: 0 2px;
+        color: $bh-gold;
+    }
+}
+
+// ─────────────────────────────────────────
+// §15  CTA BUTTONS
+// ─────────────────────────────────────────
+.slide__cta {
+    @apply inline-flex items-center no-underline;
+    gap: 8px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    border-radius: 10px;
+    padding: 11px 22px;
+    transition: transform .22s $ease-out-expo, box-shadow .22s ease, background .22s ease;
+    background: $bh-white;
+    color: $bh-green;
+
+    i {
+        font-size: 0.78rem;
+        transition: transform .2s $ease-out-expo;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .28);
+
+        i {
+            transform: translateX(4px);
+        }
+    }
+
+    // ── Variante dourada (Slide 2) ──────────────────
+    &--gold {
+        background: $bh-gold;
+        color: #1a1000;
+        box-shadow: 0 4px 18px rgba($bh-gold, .38);
+
+        &:hover {
+            background: $bh-gold-bright;
+            box-shadow: 0 10px 28px rgba($bh-gold, .52);
+        }
+    }
+
+    // ── Variante premium (Slide 3) ──────────────────
+    &--premium {
+        background: linear-gradient(130deg, $bh-gold 0%, $bh-gold-dark 100%);
+        color: $bh-white;
+        font-size: 0.88rem;
+        padding: 13px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba($bh-gold, .35), 0 1px 0 rgba($bh-white, .15) inset;
+        letter-spacing: 0.035em;
+        white-space: nowrap;
+        margin: 0 1rem; // ← afasta das laterais da borda
+
+        &:hover {
+            background: linear-gradient(130deg, $bh-gold-bright 0%, $bh-gold 100%);
+            box-shadow: 0 10px 36px rgba($bh-gold, .5), 0 1px 0 rgba($bh-white, .2) inset;
+            transform: translateY(-4px);
+        }
+    }
+
+    // ── Variante família (Slide 1) ──────────────────
+    &--familia {
+        display: flex; // substitui inline-flex → width:100% funciona
+        width: 100%; // ocupa toda a largura do conteúdo
+        justify-content: center; // centraliza texto + ícone
+        white-space: nowrap; // texto em uma linha só
+    }
+}
+
+// ─────────────────────────────────────────
+// §16  SLIDE EMPRESA — fundo
+// ─────────────────────────────────────────
+.slide--empresa {
+    background: $bh-dark-mid;
+    align-items: flex-start;
+}
+
+.slide__empresa-bg {
+    @include fill;
+    z-index: 0;
+}
+
+.slide__empresa-radial {
+    @include fill;
+    background:
+        radial-gradient(ellipse 80% 65% at 50% 42%, rgba($bh-green, .13) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 35% at 85% 85%, rgba($bh-gold, .07) 0%, transparent 60%),
+        $bh-dark-mid;
+}
+
+.slide__empresa-grid {
+    @include fill;
+    background-image:
+        linear-gradient(rgba($bh-green-light, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba($bh-green-light, .035) 1px, transparent 1px);
+    background-size: 44px 44px;
+}
+
+.slide__empresa-vignette {
+    @include fill;
+    background: radial-gradient(ellipse at 50% 50%, transparent 40%, rgba($bh-dark, .6) 100%);
+    z-index: 1;
+}
+
+// ─────────────────────────────────────────
+// §17  EYEBROW
+// ─────────────────────────────────────────
+.slide__empresa-eyebrow {
+    @apply flex items-center;
+    gap: 12px;
+    margin-bottom: 0.3rem;
+}
+
+.slide__empresa-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($bh-gold, .45), transparent);
+}
+
+.slide__empresa-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba($bh-gold, .75);
+    white-space: nowrap;
+    margin: 0;
+}
+
+// ─────────────────────────────────────────
+// §18  LOGO PREMIUM
+// ─────────────────────────────────────────
+.slide__logo-wrapper {
+    @apply relative flex items-center justify-center;
+    margin: 0 0 0.35rem;
+}
+
+.slide__logo-glow {
+    @include fill;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 50%, rgba($bh-gold, .18) 0%, transparent 70%);
+    animation: logoGlowSpin 8s linear infinite;
+    z-index: 0;
+}
+
+.slide__logo-ring {
+    @include center;
+    position: relative;
+    z-index: 1;
+    width: 210px;
+    height: 128px;
+    border-radius: 18px;
+    border: 1px solid rgba($bh-gold, .32);
+    background: rgba($bh-white, .05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 4px;
+    animation: ringPulse 3s ease-in-out infinite;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-color: rgba($bh-gold, .55);
+        border-style: solid;
+    }
+
+    &::before {
+        top: -1px;
+        left: -1px;
+        border-width: 2px 0 0 2px;
+        border-radius: 4px 0 0 0;
+    }
+
+    &::after {
+        bottom: -1px;
+        right: -1px;
+        border-width: 0 2px 2px 0;
+        border-radius: 0 0 4px 0;
+    }
+}
+
+.slide__logo-ring-inner {
+    @include center;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba($bh-gold, .15);
+    padding: 0;
+    overflow: hidden;
+}
+
+.slide__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1.12) drop-shadow(0 3px 14px rgba(0, 0, 0, .55));
+}
+
+// ─────────────────────────────────────────
+// §19  SLOGAN E BADGES
+// ─────────────────────────────────────────
+.slide__empresa-slogan {
+    font-size: 0.9rem;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    color: rgba($bh-white, .62);
+    margin: 0 0 0.35rem;
+    line-height: 1.55;
+}
+
+.slide__empresa-badges {
+    @apply flex items-center justify-center flex-wrap;
+    gap: 8px;
+    margin: 0 0 0.65rem;
+}
+
+.slide__badge {
+    @apply inline-flex items-center;
+    gap: 5px;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba($bh-gold, .88);
+    background: rgba($bh-gold, .08);
+    border: 1px solid rgba($bh-gold, .22);
+    border-radius: 20px;
+    padding: 4px 11px;
+
+    i {
+        font-size: 0.62rem;
+    }
+}
+
+// ─────────────────────────────────────────
+// §20  SETAS DE NAVEGAÇÃO
+// ─────────────────────────────────────────
+.slider-arrow {
+    @apply absolute top-1/2 -translate-y-1/2;
+    @apply flex items-center justify-center;
+    @apply cursor-pointer outline-none z-20;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba($bh-white, .22) !important;
+    color: $bh-white;
+    transition: background .2s ease, transform .2s $ease-out-expo, border-color .2s ease;
+    @include glass(0.10);
+
+    i {
+        font-size: 0.85rem;
+    }
+
+    &:hover {
+        @include glass(0.22);
+        border-color: rgba($bh-white, .4) !important;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    &--prev {
+        left: 14px;
+    }
+
+    &--next {
+        right: 14px;
+    }
+
+    @media (max-width: 480px) {
+        width: 34px;
+        height: 34px;
+
+        i {
+            font-size: 0.72rem;
+        }
+
+        &--prev {
+            left: 8px;
+        }
+
+        &--next {
+            right: 8px;
+        }
+    }
+}
+
+// ─────────────────────────────────────────
+// §21  PONTOS DE NAVEGAÇÃO
+// ─────────────────────────────────────────
+.slider-dots {
+    @apply absolute flex items-center justify-center;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 7px;
+    z-index: 20;
+}
+
+.slider-dot {
+    @apply cursor-pointer outline-none p-0;
+    height: 7px;
+    width: 7px;
+    border: none !important;
+    border-radius: 4px;
+    background: rgba($bh-white, .38);
+    transition: width .35s $ease-out-expo, background .35s ease;
+
+    &--active {
+        width: 28px;
+        background: $bh-gold;
+        animation: dotExpand 2s ease-in-out .5s infinite;
+    }
+
+    &:hover:not(.slider-dot--active) {
+        background: rgba($bh-white, .65);
+    }
+}
+
+// ─────────────────────────────────────────
+// §22  BARRA DE PROGRESSO
+// ─────────────────────────────────────────
+.slider-progress {
+    @apply absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba($bh-white, .08);
+    z-index: 20;
+    overflow: hidden;
+}
+
+.slider-progress__fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, $bh-green-light 0%, $bh-gold 100%);
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+
+    &--running {
+        animation: progressFill linear forwards;
+    }
+}

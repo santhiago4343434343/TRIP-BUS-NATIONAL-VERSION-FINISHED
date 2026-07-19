@@ -1,0 +1,67 @@
+// slide-logo.component.scss
+@use '../shared/banner-slide.shared' as shared;
+
+:host {
+  @extend %slide-base;
+  background: #c8d400; // fallback enquanto a imagem carrega
+}
+
+.slide-link { @extend %slide-link; }
+.ad-badge   { @extend %ad-badge;   }
+
+// ── Anel pulsante ────────────────────────────────────────────
+.pulse-ring {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.4s;
+
+  &.visible { opacity: 1; }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 215, 0, 0.7);
+    animation: shared.pulse-ring 1.8s ease-out infinite;
+  }
+
+  &::after {
+    animation-delay: 0.9s;
+  }
+}
+
+// ── Badge CTA ────────────────────────────────────────────────
+.cta-badge {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  pointer-events: none;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffd700;
+  border-radius: 30px;
+  padding: 7px 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffd700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

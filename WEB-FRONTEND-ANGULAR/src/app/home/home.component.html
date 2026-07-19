@@ -1,0 +1,133 @@
+<section class="p-6 md:p-10 bg-gray-50">
+  <h2 class="text-3xl font-bold text-gray-800 mb-8 border-l-4 border-blue-600 pl-4 uppercase">
+    Ofertas Exclusivas
+  </h2>
+
+  <!-- GRID PRINCIPAL: 4 Colunas -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
+
+    <!-- LADO ESQUERDO: Banners Horizontais (Ocupa 3 colunas) -->
+    <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- ULTRA -->
+      <a href="https://www.viacaoultra.com.br/" target="_blank" class="banner-container ultra group">
+        <div class="banner-face face-logo">
+          <img src="assets/ultra-logo.png" alt="Viação Ultra" class="h-20 object-contain">
+        </div>
+        <div class="banner-face face-oferta">
+          <div class="text-center p-4">
+            <p class="text-sm font-bold uppercase text-black">São Paulo para</p>
+            <p class="text-4xl font-black text-[#000080]">SANTOS</p>
+            <div class="preco-badge">A PARTIR DE 75 R$</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- COMETA -->
+      <a href="https://www.viacaocometa.com.br/" target="_blank" class="banner-container cometa group">
+        <div class="banner-face face-logo">
+          <img src="assets/img/Logotipo_Cometa004.png" alt="Viação Cometa" class="h-20 object-contain">
+        </div>
+        <div class="banner-face face-oferta">
+          <div class="text-center p-4">
+            <p class="text-sm font-bold text-white/90 uppercase">São Paulo para</p>
+            <p class="text-4xl font-black text-white">PERUÍBE</p>
+            <div class="preco-badge-cometa">A PARTIR DE 95 R$</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- DISNEY -->
+      <a href="https://www.cvc.com.br/destinos/disney/" target="_blank" rel="noopener noreferrer"
+        class="banner-container group disney-especial">
+        <div class="banner-face">
+          <img src="assets/viagem-a-disney.webp" alt="Disney" class="w-full h-full object-cover">
+          <div class="titulo-piscante-container">
+            <!-- Adicionado drop-shadow para destacar o branco -->
+            <h3 class="texto-piscante text-white text-3xl font-black drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              WORLD RESORT
+            </h3>
+            <p class="localidade text-yellow-400 font-bold drop-shadow-md">NA FLORIDA</p>
+
+            <div class="preco-container-disney">
+              <span class="prefixo text-white drop-shadow-sm font-semibold">A PARTIR DE</span>
+              <!-- Alterado de blue-900 para orange-500 ou manter o branco com sombra forte -->
+              <span class="valor text-orange-500 font-black text-2xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
+                R$ 974,90
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Aumentado levemente o overlay escuro de 20 para 40 para dar contraste ao texto -->
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+      </a>
+
+      <!-- GONTIJO (Ocupa as 3 colunas desta linha) -->
+      <a href="https://www.gontijo.com.br/" target="_blank" class="banner-container group gontijo-triplo md:col-span-3">
+        <div class="banner-face face-1 bg-[#ffcc00]">
+          <img src="assets/gontijo.jpg" alt="Logo Gontijo" class="h-full w-full object-cover">
+        </div>
+        <div class="banner-face face-2">
+          <img src="assets/hotel-joao-pessoa.webp" alt="João Pessoa" class="w-full h-full object-cover">
+          <div
+            class="info-overlay-jp absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center">
+            <h3 class="destino text-[#ffcc00] font-black text-3xl">JOÃO PESSOA</h3>
+            <div class="preco-tag bg-white px-4 py-1 rounded-full text-blue-900 font-bold">A PARTIR DE R$ 135,00</div>
+          </div>
+        </div>
+        <div class="banner-face face-3">
+          <img src="assets/img/banner-gontijo.jpg" alt="Gontijo Banner" class="w-full h-full object-cover">
+        </div>
+      </a>
+    </div>
+
+    <!-- LADO DIREITO: LOGGI (Fino e Comprido - 3 Faces) -->
+    <div class="md:col-span-1">
+      <a href="https://www.loggi.com/" target="_blank" class="banner-vertical-loggi group">
+
+        <!-- Face 1: Logo Institucional Centralizada -->
+        <div class="banner-face face-1 bg-[#0000ff] flex flex-col items-center justify-center p-4">
+          <!-- Adicionei mx-auto para garantir a centralização horizontal -->
+          <img src="assets/loggi.jpeg" alt="Loggi" class="w-[98%] mx-auto object-contain">
+
+          <!-- Troquei 'Logística' por 'Empresas' e adicionei margem superior -->
+          <p class="text-white font-bold mt-6 uppercase tracking-widest text-center text-sm">
+            Empresas
+          </p>
+        </div>
+
+        <!-- Face 2: Foco no Cupom (Fundo Azul Loggi) -->
+        <div class="banner-face face-2 bg-[#0000ff] flex flex-col items-center justify-center p-4">
+          <div class="text-center text-white">
+
+            <!-- Chamada do Cupom centralizada -->
+            <div class="flex flex-col items-center">
+              <p class="text-xs uppercase font-bold opacity-90 tracking-widest mb-2">
+                Use o cupom
+              </p>
+              <div
+                class="bg-white text-[#0000ff] font-black py-2 px-4 rounded-md shadow-xl transform hover:scale-105 transition-transform">
+                #LOGGIACELERA
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Face 3: Foto Entregador -->
+        <div class="banner-face face-3">
+          <img src="assets/ENTREGADOR-FELIZ.AVIF" alt="Entrega Loggi" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/60 flex items-center justify-center p-4">
+            <p class="text-white font-bold text-center text-sm leading-tight">
+              Frete barato e sem interrupções. <br>
+              <span class="text-[#ff0084] text-lg uppercase">Envie com a Loggi</span> <br>
+              <span class="underline mt-5 block opacity-80">acesse aqui</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-40"></div>
+      </a>
+    </div>
+  </div>
+</section>

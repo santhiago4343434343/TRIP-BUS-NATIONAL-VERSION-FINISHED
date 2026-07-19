@@ -1,0 +1,63 @@
+<div class="buser-banner-wrapper">
+
+    <!-- SLIDES -->
+    <div class="slides-container" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+
+        <!-- SLIDE 1: Menina correndo -->
+        <div class="slide slide-1">
+            <img src="assets/VIAGEM-CORRENDO.JPG" alt="Viajante animada" class="slide-bg-img" />
+            <div class="slide-overlay overlay-blue"></div>
+            <div class="slide-content content-left">
+                <span class="badge-tag">⚡ Alerta de Oferta</span>
+                <h2 class="slide-headline">
+                    Ainda correndo<br>
+                    dos <span class="highlight-price">preços caros?</span>
+                </h2>
+                <p class="slide-subtext">A Trip Bus tem o melhor custo-benefício da estrada.</p>
+                <a href="https://www.buser.com.br/?gad_campaignid=23132175809&gad_source=1&gclid=Cj0KCQjwio_RBhDMARIsAJPveNMqFghJ1XOkBGpR6NXAEY4X_WegDgtj1fOSxiOXn1se-U5WP7dPf4YaAo-LEALw_wcB&utm_source=revendedor_1081"
+                    class="slide-cta">Ver passagens →</a>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Buser Bus -->
+        <div class="slide slide-2">
+            <img src="assets/BUSER-DESCONTOS.JPG" alt="Buser - Ônibus e App" class="slide-bg-img" />
+            <div class="slide-overlay overlay-pink"></div>
+            <div class="slide-content content-right">
+                <span class="badge-tag buser-badge">🚌 Parceiro Buser</span>
+                <h2 class="slide-headline">
+                    Viaje com a <span class="highlight-buser">Buser</span><br>
+                    e compare!
+                </h2>
+                <div class="price-box">
+                    <span class="price-label">Belo Horizonte a partir de</span>
+                    <span class="price-value">R$ 145<span class="price-cents">,00</span></span>
+                </div>
+                <a href="https://www.buser.com.br/onibus/sao-paulo-sp/belo-horizonte-mg"
+                    class="slide-cta cta-pink">Garantir minha vaga →</a>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Logo estática -->
+        <div class="slide slide-3">
+            <div class="slide-logo-bg"></div>
+            <div class="logo-center-wrap">
+                <img src="assets/buser-logo.png" alt="Buser" class="logo-static" />
+                <p class="logo-tagline">Sua viagem, seu preço.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DOTS DE NAVEGAÇÃO -->
+    <div class="nav-dots">
+        <span *ngFor="let slide of slides; let i = index" class="dot" [class.active]="i === currentSlide"
+            (click)="goToSlide(i)">
+        </span>
+    </div>
+
+    <!-- SETAS -->
+    <button class="arrow arrow-prev" (click)="prevSlide()">&#8249;</button>
+    <button class="arrow arrow-next" (click)="nextSlide()">&#8250;</button>
+
+</div>

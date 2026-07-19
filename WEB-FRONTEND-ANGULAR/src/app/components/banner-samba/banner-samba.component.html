@@ -1,0 +1,43 @@
+<!-- banner-samba.component.html -->
+<div class="banner-wrapper">
+
+  <!-- TRACK DOS SLIDES -->
+  <div class="slider-track" [style.transform]="'translateX(-' + (slideAtual * 25) + '%)'">
+    <!-- Slide 1 – Acesso / #uai das gerais -->
+    <div class="slide-item">
+      <app-slide-acesso [isActive]="slideAtual === 0" [link]="linkSlide1" adLabel="anúncio 1">
+      </app-slide-acesso>
+    </div>
+
+    <!-- Slide 2 – Logo Samba Hotéis -->
+    <div class="slide-item">
+      <app-slide-logo [isActive]="slideAtual === 1" [link]="linkSlide2" adLabel="anúncio 1">
+      </app-slide-logo>
+    </div>
+
+    <!-- Slide 3 – Extrema -->
+    <div class="slide-item">
+      <app-slide-extrema [isActive]="slideAtual === 2" [link]="linkSlide3" adLabel="anúncio 2">
+      </app-slide-extrema>
+    </div>
+
+    <!-- Slide 4 – Rota das Águas -->
+    <div class="slide-item">
+      <app-slide-rota [isActive]="slideAtual === 3" [link]="linkSlide4" adLabel="anúncio 2">
+      </app-slide-rota>
+    </div>
+  </div>
+
+  <!-- SETAS DE NAVEGAÇÃO -->
+  <button class="nav-btn prev" (click)="mover(-1)" aria-label="Slide anterior">&#8249;</button>
+  <button class="nav-btn next" (click)="mover(1)" aria-label="Próximo slide">&#8250;</button>
+
+  <!-- DOTS -->
+  <div class="dots">
+    @for (dot of totalSlidesArray; track dot; let i = $index) {
+    <span class="dot" [class.active]="slideAtual === i" (click)="goTo(i)">
+    </span>
+    }
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ecommerce</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FontAwesome gerador de icones-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=ATgfRj4lnx0FpepVYx0S8-U20YA9qyZGP9Vx7Be260KyGKiLJsPPPda3mfn_Y72Lec-uwpBLvFxOzbR_&currency=BRL"></script>
+
+
+</head>
+
+<body>
+  <app-root></app-root>
+
+  <!-- Vlibras Widget -->
+  <div vw class="enabled">
+    <!-- Corrigido: vw-access-button (com dois 'c' e dois 's') -->
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Corrigido: vlibras-plugin.js (sem o 's' no final) -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    // Corrigido: VLibras.Widget (com 'W' maiúsculo)
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+</html>

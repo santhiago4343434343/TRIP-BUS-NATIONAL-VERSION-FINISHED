@@ -1,0 +1,121 @@
+/* slide-rota.component.scss — SEM @use, keyframes inline */
+
+@keyframes water-shimmer {
+  0%, 100% { text-shadow: 0 6px 30px rgba(0,0,0,1), 0 0 30px rgba(0,180,255,.4); }
+  50%       { text-shadow: 0 6px 30px rgba(0,0,0,1), 0 0 60px rgba(0,200,255,.8); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+:host {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.slide-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ad-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 30;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: linear-gradient(to top, rgba(0, 30, 80, 0.78) 0%, rgba(0, 0, 0, 0.15) 60%);
+}
+
+/* ── Tag animada ── */
+.tag-rota {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  pointer-events: none;
+  z-index: 20;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #00cfff;
+    text-shadow: 0 2px 12px rgba(0, 150, 255, 0.8);
+    margin-bottom: 4px;
+  }
+
+  .titulo {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    animation: water-shimmer 3s ease-in-out infinite;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 12px;
+    background: linear-gradient(90deg, #0077b6, #00b4d8, #90e0ef);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+    border-radius: 25px;
+    padding: 8px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 150, 255, 0.5);
+  }
+}

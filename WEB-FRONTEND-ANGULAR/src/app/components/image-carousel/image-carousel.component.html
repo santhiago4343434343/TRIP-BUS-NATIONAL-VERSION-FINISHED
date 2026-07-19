@@ -1,0 +1,19 @@
+<div class="carrossel" *ngIf="slides.length" [style.height]="altura">
+  <!-- trilho de slides -->
+  <div class="trilho" [style.transform]="'translateX(-' + (atual * 100) + '%)'">
+    <div class="slide" *ngFor="let s of slides">
+      <img [src]="s.src" [alt]="s.titulo || 'banner'" />
+      <div class="legenda" *ngIf="s.titulo">{{ s.titulo }}</div>
+    </div>
+  </div>
+
+  <!-- setas (navegação manual) -->
+  <button type="button" class="seta esq" (click)="mover(-1)" *ngIf="total > 1" aria-label="Anterior">&#10094;</button>
+  <button type="button" class="seta dir" (click)="mover(1)" *ngIf="total > 1" aria-label="Próximo">&#10095;</button>
+
+  <!-- indicadores -->
+  <div class="dots" *ngIf="total > 1">
+    <button type="button" class="dot" *ngFor="let s of slides; let i = index"
+      [class.ativo]="i === atual" (click)="irPara(i)" [attr.aria-label]="'Ir para imagem ' + (i + 1)"></button>
+  </div>
+</div>

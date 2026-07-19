@@ -1,0 +1,37 @@
+<section class="conta-praia min-h-screen flex items-start justify-center px-4 py-16">
+  <div class="conta-card w-full max-w-2xl p-8 md:p-10 rounded-2xl shadow-2xl">
+
+    <div class="flex items-center gap-4 mb-8">
+      <i class="fa-solid fa-circle-user text-6xl text-yellow-400"></i>
+      <div>
+        <h2 class="text-3xl font-black uppercase tracking-tighter text-white">Personal Data</h2>
+        <p class="text-yellow-300 font-semibold">My Trip Bus Account</p>
+      </div>
+    </div>
+
+    <form (ngSubmit)="save()" #f="ngForm" class="flex flex-col gap-4">
+
+      <div class="dado-item">
+        <label for="name" class="dado-label">Name</label>
+        <input id="name" type="text" name="name" [(ngModel)]="name" required minlength="2" class="dado-input" />
+      </div>
+
+      <div class="dado-item">
+        <label for="email" class="dado-label">Email</label>
+        <input id="email" type="email" name="email" [(ngModel)]="email" required email class="dado-input" />
+      </div>
+
+      <p *ngIf="successMessage" class="msg-sucesso">{{ successMessage }}</p>
+      <p *ngIf="errorMessage" class="msg-erro">{{ errorMessage }}</p>
+
+      <button type="submit" class="btn-salvar-tropical" [disabled]="f.invalid || isSaving">
+        {{ isSaving ? 'SAVING...' : 'SAVE CHANGES' }}
+      </button>
+    </form>
+
+    <a routerLink="/home"
+      class="block text-center text-white/80 hover:text-yellow-300 font-semibold mt-6 transition-colors">
+      ← Back to home
+    </a>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+# === SEGURANÇA ===
+.env
+.env*
+*.key
+
+# === DOCKER & BANCO DE DADOS ===
+# Impede que os dados do seu banco local (que podem ser grandes) subam pro GitHub
+mariadb_data/
+postgres_data/
+
+# === ANGULAR / FRONTEND ===
+WEB-FRONTEND-ANGULAR/node_modules/
+WEB-FRONTEND-ANGULAR/dist/
+WEB-FRONTEND-ANGULAR/.angular/
+WEB-FRONTEND-ANGULAR/tmp/
+WEB-FRONTEND-ANGULAR/out-tsc/
+
+# === RUBY ON RAILS / API ===
+API-RUBY-RAILS/.bundle
+API-RUBY-RAILS/log/
+API-RUBY-RAILS/tmp/
+API-RUBY-RAILS/public/assets
+API-RUBY-RAILS/storage/
+API-RUBY-RAILS/vendor/bundle
+
+# === JAVA / ADMIN (Tomcat/Maven) ===
+ADMIN-JAVA-TOMCAT/target/
+ADMIN-JAVA-TOMCAT/.settings/
+ADMIN-JAVA-TOMCAT/.classpath
+ADMIN-JAVA-TOMCAT/.project
+# Evita subir o binário compilado
+*.war
+*.jar
+
+# === IDEs E EDITORES (VS Code, IntelliJ, Eclipse) ===
+.idea/
+.vscode/
+*.swp
+*.swo
+.history/
+
+# === ARQUIVOS DE SISTEMA ===
+.DS_Store
+Thumbs.db
+# Metadados do Windows (mark-of-the-web) e testes
+*:Zone.Identifier
+_claude_write_test.txt

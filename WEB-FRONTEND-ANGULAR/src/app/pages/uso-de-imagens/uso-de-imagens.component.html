@@ -1,0 +1,80 @@
+<section class="uso-wrap max-w-4xl mx-auto px-4 py-10">
+  <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-2">
+    <i class="fa-solid fa-image text-yellow-500"></i> Uso de Imagens e Proteção de Dados
+  </h1>
+  <p class="text-slate-500 mb-8">Transparência sobre as imagens exibidas e adequação à LGPD.</p>
+
+  <!-- Aviso sobre uso das imagens -->
+  <div class="bloco">
+    <h2>1. Sobre o uso das imagens</h2>
+    <p>
+      Este site é um projeto de <strong>demonstração/estudo</strong>, sem finalidade comercial. As logomarcas de
+      empresas de ônibus, fotos de hotéis e imagens de destinos são utilizadas apenas para fins
+      <strong>ilustrativos e educacionais</strong> e pertencem aos seus respectivos titulares e detentores de direitos.
+    </p>
+    <p>
+      Não reivindicamos qualquer propriedade sobre essas marcas ou imagens. Caso algum titular deseje a
+      remoção ou correção de uma imagem, basta entrar em contato pela
+      <a routerLink="/talk-to-us" class="link">Central de Atendimento</a> que a solicitação será atendida.
+    </p>
+  </div>
+
+  <!-- LGPD -->
+  <div class="bloco">
+    <h2>2. Lei Geral de Proteção de Dados (LGPD)</h2>
+    <p>
+      Este projeto observa a <strong>Lei nº 13.709/2018</strong> — a Lei Geral de Proteção de Dados Pessoais (LGPD).
+      Segundo o <strong>art. 5º, inciso I</strong>, dado pessoal é toda informação relacionada a pessoa natural
+      identificada ou identificável — o que pode incluir a <strong>imagem</strong> de uma pessoa quando ela permite
+      identificá-la.
+    </p>
+    <p>
+      Por isso, as imagens deste site foram selecionadas para <strong>não identificar pessoas de forma individualizada</strong>,
+      priorizando logomarcas, veículos, fachadas e paisagens. Eventuais dados pessoais coletados no site (como nome,
+      CPF e e-mail no momento da reserva) são tratados apenas para a finalidade da própria reserva, conforme as bases
+      legais do <strong>art. 7º</strong> da LGPD.
+    </p>
+    <p>
+      Você, como titular, tem os direitos previstos no <strong>art. 18</strong> da LGPD — entre eles, confirmar a
+      existência de tratamento, acessar, corrigir e solicitar a eliminação dos seus dados. Para exercê-los, use a
+      <a routerLink="/talk-to-us" class="link">Central de Atendimento</a>.
+    </p>
+  </div>
+
+  <!-- Créditos das imagens -->
+  <div class="bloco">
+    <h2>3. Créditos e fontes das imagens</h2>
+    <p class="mb-5">Abaixo, as imagens montadas no projeto. Clique em “Ver fonte” para acessar a origem de cada uma.</p>
+
+    <h3 class="grupo">Logomarcas de empresas de ônibus</h3>
+    <div class="grid-imgs">
+      <figure class="img-card" *ngFor="let img of logosOnibus">
+        <div class="thumb"><img [src]="img.arquivo" [alt]="img.nome"></div>
+        <figcaption>{{ img.nome }}</figcaption>
+        <a [href]="img.fonte" target="_blank" rel="noopener" class="fonte-link">Ver fonte</a>
+      </figure>
+    </div>
+
+    <h3 class="grupo">Hotéis</h3>
+    <div class="grid-imgs">
+      <figure class="img-card" *ngFor="let img of hoteis">
+        <div class="thumb"><img [src]="img.arquivo" [alt]="img.nome"></div>
+        <figcaption>{{ img.nome }}</figcaption>
+        <a [href]="img.fonte" target="_blank" rel="noopener" class="fonte-link">Ver fonte</a>
+      </figure>
+    </div>
+
+    <h3 class="grupo">Destinos e banners</h3>
+    <div class="grid-imgs">
+      <figure class="img-card" *ngFor="let img of destinos">
+        <div class="thumb"><img [src]="img.arquivo" [alt]="img.nome"></div>
+        <figcaption>{{ img.nome }}</figcaption>
+        <a [href]="img.fonte" target="_blank" rel="noopener" class="fonte-link">Ver fonte</a>
+      </figure>
+    </div>
+  </div>
+
+  <p class="text-xs text-slate-400 mt-6">
+    Última atualização: junho de 2026 • Projeto Trip Bus National (demonstração).
+  </p>
+</section>

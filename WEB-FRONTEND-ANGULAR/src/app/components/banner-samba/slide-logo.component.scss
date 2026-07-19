@@ -1,0 +1,108 @@
+/* slide-logo.component.scss — SEM @use, keyframes inline */
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2);   opacity: 0;   }
+}
+
+:host {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #c8d400;
+}
+
+img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.slide-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ad-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 30;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Anel pulsante ── */
+.pulse-ring {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.4s;
+
+  &.visible { opacity: 1; }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 215, 0, 0.7);
+    animation: pulse-ring 1.8s ease-out infinite;
+  }
+
+  &::after {
+    animation-delay: 0.9s;
+  }
+}
+
+/* ── Badge CTA ── */
+.cta-badge {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  pointer-events: none;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffd700;
+  border-radius: 30px;
+  padding: 7px 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffd700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

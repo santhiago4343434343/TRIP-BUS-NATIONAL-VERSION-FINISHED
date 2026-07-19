@@ -1,0 +1,106 @@
+// ── Labels dos campos ─────────────────────────────────────────────────────────
+
+.campo-wrapper {
+    @apply flex flex-col gap-1;
+}
+
+.campo-label {
+    @apply text-sm font-semibold text-gray-600;
+}
+
+// ── Asterisco de obrigatório ──────────────────────────────────────────────────
+
+.asterisco-obrigatorio {
+    @apply text-red-500 font-bold;
+}
+
+.texto-obrigatorio {
+    @apply text-xs text-gray-400 italic;
+}
+
+// ── Validação de campos ───────────────────────────────────────────────────────
+
+.mensagem-erro {
+    @apply flex items-center gap-1 text-red-600 text-sm;
+
+    i {
+        @apply text-xs flex-shrink-0;
+    }
+}
+
+input.valid,
+textarea.valid {
+    @apply border-2 border-green-500;
+}
+
+input.invalid,
+textarea.invalid {
+    @apply border-2 border-red-500;
+}
+
+// ── Contador de caracteres ────────────────────────────────────────────────────
+
+.contador-caracteres {
+    @apply text-xs text-gray-400 text-right flex items-center justify-end gap-1 flex-shrink-0;
+
+    i {
+        @apply text-xs;
+    }
+
+    &.alerta {
+        @apply text-yellow-500 font-semibold;
+    }
+
+    &.limite {
+        @apply text-red-600 font-bold;
+    }
+}
+
+// ── Alerta geral de envio inválido ────────────────────────────────────────────
+
+.alerta-geral {
+    @apply flex items-center gap-2 bg-red-50 border border-red-300 text-red-600 text-sm rounded px-4 py-3;
+
+    i {
+        @apply text-base flex-shrink-0;
+    }
+}
+
+// ── Botão com estado inválido visível ─────────────────────────────────────────
+
+button.btn-invalido {
+    @apply bg-gray-400 cursor-not-allowed opacity-70;
+
+    &:hover {
+        @apply bg-gray-400;
+    }
+}
+
+// ── Mapa do Google Maps ───────────────────────────────────────────────────────
+
+.mapa-container {
+    @apply rounded-lg overflow-hidden border border-gray-200;
+    min-height: 260px;
+    height: 100%;
+
+    iframe {
+        min-height: 260px;
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+}
+
+// ── Responsivo: empilha no mobile ─────────────────────────────────────────────
+
+@media (max-width: 767px) {
+    .mapa-container {
+        min-height: 220px;
+        height: 220px;
+
+        iframe {
+            min-height: 220px;
+            height: 220px;
+        }
+    }
+}

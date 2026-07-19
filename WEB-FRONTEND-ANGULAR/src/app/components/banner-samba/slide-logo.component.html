@@ -1,0 +1,10 @@
+<!-- slide-logo.component.html -->
+<a class="slide-link" [href]="link" target="_blank" rel="noopener" [attr.aria-label]="adLabel"></a>
+
+<img src="assets/SAMBAHOTEIS001-BELOHORIZONTE.png" alt="Samba Hotéis Belo Horizonte">
+
+<span class="ad-badge">{{ adLabel }}</span>
+
+<div class="pulse-ring" [class.visible]="isActive" aria-hidden="true"></div>
+
+<span class="cta-badge" [class.visible]="isActive">&#9654; Saiba mais</span>

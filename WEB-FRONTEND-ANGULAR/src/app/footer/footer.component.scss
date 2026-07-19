@@ -1,0 +1,74 @@
+.footer {
+  @apply bg-gray-100 text-gray-700 text-lg shadow-inner;
+  // Gradiente suave para profundidade
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+}
+
+.footer__container {
+  @apply flex justify-between items-start flex-wrap p-5 max-w-7xl mx-auto;
+}
+
+// Estilo para os blocos de conteúdo (Logo, Selos, Contato)
+.footer__container>section,
+.footer__container>div,
+.footer__container>address {
+  @apply flex-1 min-w-[300px] m-2 p-4 rounded-lg;
+  // Removi o excesso de bg-gray-200 para não ficar muito "pesado" visualmente
+}
+
+.footer__title {
+  // Alterado para o Azul Marinho da marca
+  @apply text-xl font-black text-[#000080] mb-4 uppercase tracking-wide;
+}
+
+.footer__about-text {
+  // Alterado de 400px fixo para max-width para não quebrar no mobile
+  @apply max-w-[400px] text-left text-sm text-gray-500 mt-2;
+}
+
+.footer__copyright {
+  // Mantendo seu estilo de destaque no rodapé inferior
+  @apply text-center mt-8 bg-gray-200 font-bold p-4 text-gray-600 text-xs uppercase tracking-widest;
+}
+
+// Estilização dos Ícones (Laranja da marca)
+.footer i {
+  @apply text-[#ff6600] text-xl mr-2 transition-transform duration-300;
+}
+
+.footer li {
+  @apply my-3 flex items-center transition-colors duration-200 hover:text-[#000080];
+  // Removi o padding e sombra individual para um visual mais limpo e profissional
+}
+
+.footer ul {
+  @apply list-none p-0 m-0;
+}
+
+// Estilo específico para os links dos selos (Ebit/Reclame Aqui)
+.footer a {
+  @apply inline-block transition-transform duration-300 hover:scale-110;
+}
+
+// Ajuste para a Logo no rodapé
+.footer h2 span {
+  @apply transition-opacity duration-300;
+
+  &:hover {
+    @apply opacity-80;
+  }
+}
+
+.logo-text {
+  // Cria o gradiente no texto
+  background: linear-gradient(to bottom, #ff9900 0%, #ff4500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  // Cria o contorno preto (stroke)
+  filter: drop-shadow(2px 2px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000) drop-shadow(1px 1px 0px #000);
+
+  // Ajuste fino para a fonte parecer mais "cheia" como na imagem
+  letter-spacing: -0.05em;
+  font-family: 'Arial Black', sans-serif; // Ou a fonte pesada que você usa no topo
+}

@@ -1,0 +1,262 @@
+// 1. KEYFRAMES
+@keyframes piscarBanner {
+
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes piscarTresBanners {
+
+  0%,
+  30% {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  33%,
+  100% {
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes piscarTresBanners-2 {
+
+  0%,
+  33% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  36%,
+  63% {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  66%,
+  100% {
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes piscarTresBanners-3 {
+
+  0%,
+  66% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  69%,
+  97% {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  100% {
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes piscarTresFacesLoggi {
+
+  0%,
+  30% {
+    opacity: 1;
+    z-index: 3;
+  }
+
+  33%,
+  100% {
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes brilhoTexto {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+    text-shadow: 0 0 15px white, 0 0 25px #00aaff;
+  }
+}
+
+// 2. ESTRUTURA BASE
+.banner-container {
+  display: block;
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.banner-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 3. EMPRESAS
+.ultra {
+  .face-logo {
+    background-color: #ffe000;
+    animation: piscarBanner 5s infinite;
+    z-index: 2;
+  }
+
+  .face-oferta {
+    background: #ffe000;
+    animation: piscarBanner 5s infinite reverse;
+    z-index: 1;
+  }
+}
+
+.cometa {
+  .face-logo {
+    background-color: #004691;
+    animation: piscarBanner 7s infinite;
+    z-index: 2;
+  }
+
+  .face-oferta {
+    background: #004691;
+    animation: piscarBanner 7s infinite reverse;
+    z-index: 1;
+  }
+}
+
+.gontijo-triplo {
+  background-color: #000;
+
+  .face-1 {
+    animation: piscarTresBanners 9s infinite;
+    z-index: 3;
+  }
+
+  .face-2 {
+    animation: piscarTresBanners-2 9s infinite;
+    z-index: 2;
+  }
+
+  .face-3 {
+    animation: piscarTresBanners-3 9s infinite;
+    z-index: 1;
+  }
+}
+
+.disney-especial {
+  .titulo-piscante-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    z-index: 20;
+    pointer-events: none; // Garante que o texto não atrapalhe o clique no banner
+  }
+
+  .texto-piscante {
+    // Mantém a animação, mas garante que o estado inicial seja visível
+    color: white;
+    animation: brilhoTexto 3s infinite ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+}
+
+// Melhorando a animação de brilho para contraste
+@keyframes brilhoTexto {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 165, 0, 0.6);
+    transform: scale(1.05); // Um leve pulso ajuda na atenção
+  }
+}
+
+// 4. LOGGI VERTICAL
+.banner-vertical-loggi {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  .banner-face {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.face-1 {
+      animation: piscarTresFacesLoggi 12s infinite;
+    }
+
+    &.face-2 {
+      animation: piscarTresFacesLoggi 12s infinite 4s;
+    }
+
+    &.face-3 {
+      animation: piscarTresFacesLoggi 12s infinite 8s;
+    }
+  }
+}
+
+// BADGES
+.preco-badge {
+  background: #000080;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-weight: 900;
+  border: 2px solid white;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.preco-badge-cometa {
+  @extend .preco-badge;
+  background: #ffe000;
+  color: #004691;
+  border: 2px solid #004691;
+}

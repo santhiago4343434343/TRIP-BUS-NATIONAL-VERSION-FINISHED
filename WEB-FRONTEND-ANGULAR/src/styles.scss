@@ -1,0 +1,10 @@
+/* src/styles.scss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Se você tiver fontes ou reset de margens, ficam aqui.
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}

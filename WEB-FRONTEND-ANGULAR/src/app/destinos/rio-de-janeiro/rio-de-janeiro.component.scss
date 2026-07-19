@@ -1,0 +1,654 @@
+/* =============================================
+   CORREÇÃO PRINCIPAL — botões de navegação
+   ============================================= */
+.nav-buttons {
+    pointer-events: none;
+}
+
+.nav-btn {
+    pointer-events: auto;
+}
+
+/* =============================================
+   OVERLAY CLICÁVEL DOS BANNERS
+   ============================================= */
+.banner-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.btn-interno {
+    position: relative;
+    z-index: 2;
+    animation: pulseButton 2.5s infinite ease-in-out;
+}
+
+/* =============================================
+   BANNER UNIÃO
+   ============================================= */
+.banner-uniao {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background-color: #FF0000;
+    color: #fff;
+    text-align: center;
+}
+
+.handshake-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    animation: handshakeSlide 8s infinite ease-in-out;
+}
+
+@keyframes handshakeSlide {
+    0% {
+        transform: translateX(110%);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateX(110%);
+        opacity: 0;
+    }
+
+    25% {
+        transform: translateX(0);
+        opacity: 0.3;
+    }
+
+    55% {
+        transform: translateX(0);
+        opacity: 0.3;
+    }
+
+    70% {
+        transform: translateX(-110%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-110%);
+        opacity: 0;
+    }
+}
+
+/* =============================================
+   BANNER ÁGUIA BRANCA
+   ============================================= */
+.banner-aguia-branca {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    overflow: visible;
+    background-color: #FFDE21;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+/* =============================================
+   FAIXA AZUL — logo → #ANGRA → #RIO
+   ============================================= */
+.faixa-topo {
+    position: relative;
+    height: 88px;
+    width: 100%;
+    background-color: #0044cc;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faixa-logo {
+    position: absolute;
+    width: 380px;
+    height: auto;
+    object-fit: contain;
+    animation: slide-logo 9s infinite ease-in-out;
+}
+
+.faixa-tag {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.faixa-angra {
+    animation: slide-angra 9s infinite ease-in-out;
+}
+
+.faixa-rio {
+    animation: slide-rio 9s infinite ease-in-out;
+}
+
+@keyframes slide-logo {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    27.8% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    33.3% {
+        transform: translateX(-130%);
+        opacity: 0;
+    }
+
+    34% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    99% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-angra {
+    0% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    27.8% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    33.3% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    61.1% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    66.6% {
+        transform: translateX(-130%);
+        opacity: 0;
+    }
+
+    67% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-rio {
+    0% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    61.1% {
+        transform: translateX(130%);
+        opacity: 0;
+    }
+
+    66.6% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    94.4% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-130%);
+        opacity: 0;
+    }
+}
+
+/* =============================================
+   FRASE-BOX
+   ============================================= */
+.frase-box {
+    background-color: #0044cc;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* =============================================
+   ANIMAÇÕES GERAIS
+   ============================================= */
+@keyframes pulseGreen {
+
+    0%,
+    100% {
+        transform: scale(1);
+        color: #22c55e;
+    }
+
+    50% {
+        transform: scale(1.05);
+        color: #16a34a;
+    }
+}
+
+.animate-pulse-green {
+    animation: pulseGreen 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseButton {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-blink {
+    animation: blink 2s infinite;
+}
+
+.animate-blink-delay {
+    animation: blink 2s infinite;
+    animation-delay: 1s;
+}
+
+.animate-blink-delay2 {
+    animation: blink 2s infinite;
+    animation-delay: 2s;
+}
+
+@keyframes fadeCycle {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    50%,
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate-fade-cycle {
+    animation: fadeCycle 10s infinite ease-in-out;
+}
+
+.delay-5s {
+    animation-delay: 5s;
+}
+
+/* =============================================
+   FUNDO COM ZOOM
+   ============================================= */
+.banner-img {
+    transform: scale(1);
+    animation: zoomBackground 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBackground {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+/* =============================================
+   TÍTULO RIO DE JANEIRO — Zoom + Blur Pulsante
+   ============================================= */
+@keyframes titlePulseZoom {
+    0% {
+        transform: scale(1.12);
+        filter: blur(4px);
+    }
+
+    40% {
+        transform: scale(1);
+        filter: blur(0px);
+    }
+
+    70% {
+        transform: scale(1.05);
+        filter: blur(0px);
+    }
+
+    100% {
+        transform: scale(1.12);
+        filter: blur(4px);
+    }
+}
+
+.title-rio {
+    display: inline-block;
+    animation: titlePulseZoom 5s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+/* =============================================
+   BANNER NACIONAL INN — Glassmorphism
+   ============================================= */
+.banner-angrainn {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.angrainn-glass-card {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    padding: 24px;
+    color: #ffffff;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.angrainn-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.angrainn-nome-bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.angrainn-nome {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.angrainn-stars {
+    color: #ffd54f;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.angrainn-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.angrainn-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+
+    .detalhe-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        i {
+            font-size: 16px;
+        }
+    }
+}
+
+.angrainn-preco {
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-align: left;
+
+    strong {
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+
+.angrainn-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px;
+    background: #ffffff;
+    color: #0d47a1;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+        background: #f0f4f8;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   BANNER PARATY — Slider de fundo + Glassmorphism
+   ============================================= */
+.banner-paraty {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paraty-slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+
+    .slider-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: animacaoParatyDois 10s infinite ease-in-out;
+
+        &:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 5s;
+        }
+    }
+}
+
+.banner-paraty .angrainn-glass-card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    padding: 24px;
+    color: #ffffff;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+    .angrainn-topo {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 16px;
+    }
+
+    .angrainn-nome-bloco {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .angrainn-nome {
+        font-size: 22px;
+        font-weight: 700;
+        display: block;
+        line-height: 1.2;
+    }
+
+    .angrainn-stars {
+        color: #ffd54f;
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-top: 4px;
+    }
+
+    .angrainn-badge {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 6px 14px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .angrainn-detalhes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 16px;
+        margin-bottom: 24px;
+        font-size: 14px;
+
+        .detalhe-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+    }
+
+    .angrainn-preco {
+        font-size: 18px;
+        margin-bottom: 16px;
+        text-align: left;
+
+        strong {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+
+    .angrainn-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 14px;
+        background: #ffffff;
+        color: #0d47a1;
+        border-radius: 14px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.1s ease;
+
+        &:hover {
+            background: #f0f4f8;
+            transform: translateY(-1px);
+        }
+    }
+}
+
+/* =============================================
+   ANIMAÇÃO — Paraty (2 imagens alternadas)
+   ============================================= */
+@keyframes animacaoParatyDois {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+
+    95% {
+        opacity: 0;
+    }
+}

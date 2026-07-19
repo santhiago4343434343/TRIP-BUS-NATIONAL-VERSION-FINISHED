@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource name="jdbc/TripBusDB"
+            auth="Container"
+            type="javax.sql.DataSource"
+            maxTotal="20"
+            maxIdle="10"
+            maxWaitMillis="-1"
+            username="tripuser"
+            password="trippass"
+            driverClassName="org.mariadb.jdbc.Driver"
+            url="jdbc:mariadb://db:3306/trip_bus_db"/>
+</Context>

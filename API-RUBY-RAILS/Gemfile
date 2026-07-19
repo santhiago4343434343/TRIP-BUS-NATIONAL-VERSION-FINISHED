@@ -1,0 +1,43 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '~> 3.2.0'
+
+# Framework principal
+gem 'rails', '~> 7.0.8.1'
+
+# Banco de dados MariaDB/MySQL
+gem 'mysql2', '~> 0.5'
+
+# Performance e Assets
+gem 'bootsnap', require: false
+gem 'sprockets-rails'
+
+# Middleware CORS (Essencial para o Angular conseguir acessar a API)
+gem 'rack-cors'
+
+# ✅ ADICIONADO: Autenticação JWT
+gem 'jwt', '~> 2.8'
+
+# ✅ ADICIONADO: Hash seguro de senhas (habilita has_secure_password no User)
+gem 'bcrypt', '~> 3.1'
+
+# Utilitários
+gem 'logger'
+gem 'psych', '~> 5.1'
+
+# Integrações de Terceiros
+gem 'mercadopago-sdk'
+
+group :development, :test do
+  gem 'byebug'
+end
+
+group :test do
+  gem 'rspec-rails'
+end
+
+group :production do
+  gem 'puma'
+  gem 'nio4r', '~> 2.0'
+end

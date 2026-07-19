@@ -1,0 +1,59 @@
+<section class="max-w-lg mx-auto px-4 py-16 text-center">
+
+  <!-- Carregando -->
+  <div *ngIf="estado === 'carregando'" class="text-slate-500 py-10">
+    <i class="fa-solid fa-spinner fa-spin text-3xl"></i>
+    <p class="mt-3">Confirmando seu pagamento...</p>
+  </div>
+
+  <!-- Aprovado -->
+  <div *ngIf="estado === 'aprovado'" class="bg-white rounded-3xl shadow-lg border border-emerald-100 p-10">
+    <div class="mx-auto w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center">
+      <i class="fa-solid fa-circle-check text-emerald-500 text-5xl"></i>
+    </div>
+    <h1 class="mt-5 text-2xl font-black text-slate-800">Pagamento aprovado!</h1>
+    <p class="mt-2 text-slate-500">Sua passagem está confirmada. Boa viagem! 🚌</p>
+    <p *ngIf="codigo" class="mt-3 text-slate-700">Código: <b>{{ codigo }}</b></p>
+    <div class="mt-8 flex flex-wrap gap-3 justify-center">
+      <a routerLink="/historico"
+         class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl transition">
+        Ver minhas passagens
+      </a>
+      <a routerLink="/tickets"
+         class="border border-slate-300 text-slate-600 font-bold px-6 py-2.5 rounded-xl hover:bg-slate-50 transition">
+        Comprar outra
+      </a>
+    </div>
+  </div>
+
+  <!-- Pendente -->
+  <div *ngIf="estado === 'pendente'" class="bg-white rounded-3xl shadow-lg border border-amber-100 p-10">
+    <div class="mx-auto w-20 h-20 rounded-full bg-amber-100 flex items-center justify-center">
+      <i class="fa-solid fa-clock text-amber-500 text-5xl"></i>
+    </div>
+    <h1 class="mt-5 text-2xl font-black text-slate-800">Pagamento pendente</h1>
+    <p class="mt-2 text-slate-500">Assim que for aprovado, sua passagem é confirmada automaticamente.</p>
+    <div class="mt-8">
+      <a routerLink="/historico"
+         class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-6 py-2.5 rounded-xl transition">
+        Ver minhas passagens
+      </a>
+    </div>
+  </div>
+
+  <!-- Recusado -->
+  <div *ngIf="estado === 'recusado'" class="bg-white rounded-3xl shadow-lg border border-red-100 p-10">
+    <div class="mx-auto w-20 h-20 rounded-full bg-red-100 flex items-center justify-center">
+      <i class="fa-solid fa-circle-xmark text-red-500 text-5xl"></i>
+    </div>
+    <h1 class="mt-5 text-2xl font-black text-slate-800">Pagamento não aprovado</h1>
+    <p class="mt-2 text-slate-500">Não se preocupe, você pode tentar novamente.</p>
+    <div class="mt-8">
+      <a routerLink="/tickets"
+         class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl transition">
+        Tentar de novo
+      </a>
+    </div>
+  </div>
+
+</section>

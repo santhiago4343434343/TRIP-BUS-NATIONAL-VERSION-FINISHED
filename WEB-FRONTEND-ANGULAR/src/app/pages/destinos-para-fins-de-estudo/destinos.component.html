@@ -1,0 +1,22 @@
+<!--PARA FINS DE ESTUDO , COMPONENT INATIVADO-->
+
+<div class="grid grid-cols-3 gap-6">
+    <button (click)="selectCity('sao-paulo')" class="btn">São Paulo</button>
+    <button (click)="selectCity('rio')" class="btn">Rio de Janeiro</button>
+    <button (click)="selectCity('belo-horizonte')" class="btn">Belo Horizonte</button>
+</div>
+
+<div *ngIf="selectedCity === 'sao-paulo'">
+    <img src="assets/sao-paulo/sao-paulo-principal.jpg" alt="São Paulo">
+    <h2>São Paulo</h2>
+</div>
+
+<div *ngIf="selectedCity === 'rio'">
+    <img src="assets/rio-de-janeiro/rio-de-janeiro.jpg" alt="Rio de Janeiro">
+    <h2>Rio de Janeiro</h2>
+</div>
+
+<div *ngIf="selectedCity === 'belo-horizonte'">
+    <img src="assets/belo-horizonte/belo-horizonte.jpg" alt="Belo Horizonte">
+    <h2>Belo Horizonte</h2>
+</div>

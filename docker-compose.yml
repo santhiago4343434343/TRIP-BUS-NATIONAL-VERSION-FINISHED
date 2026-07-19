@@ -1,0 +1,116 @@
+services:
+
+  db:
+    image: mariadb:10.11
+    container_name: bus_mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USERNAME}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: bus_phpmyadmin
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "8082:80"
+
+  api:
+    build: ./API-RUBY-RAILS
+    container_name: bus_api_rails
+    restart: unless-stopped
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      RAILS_ENV: development
+      MP_ACCESS_TOKEN: ${MP_ACCESS_TOKEN}
+      MP_PIX_ACCESS_TOKEN: ${MP_PIX_ACCESS_TOKEN}
+      FRONTEND_URL: ${FRONTEND_URL}
+      MP_NOTIFICATION_URL: ${MP_NOTIFICATION_URL}
+      PIX_SIMULAR_APROVACAO: ${PIX_SIMULAR_APROVACAO}
+      # Mailtrap (SMTP) — necessário porque o development.rb agora lê do ENV
+      SMTP_ADDRESS: ${SMTP_ADDRESS}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      SMTP_AUTHENTICATION: ${SMTP_AUTHENTICATION}
+    volumes:
+      - ./API-RUBY-RAILS:/app
+      - /app/vendor/bundle
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      # Host 3001 -> container 3000 (evita conflito com o proway, que usa 3000)
+      - "3001:3000"
+
+  admin-java:
+    build: ./ADMIN-JAVA-TOMCAT
+    container_name: bus_admin_java
+    environment:
+      DB_URL: jdbc:mariadb://db:3306/${DB_NAME}
+      DB_USER: ${DB_USERNAME}
+      DB_PASS: ${DB_PASSWORD}
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./ADMIN-JAVA-TOMCAT/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./ADMIN-JAVA-TOMCAT/context.xml:/usr/local/tomcat/conf/context.xml
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./WEB-FRONTEND-ANGULAR
+    container_name: bus_frontend_angular
+    restart: unless-stopped
+    volumes:
+      - ./WEB-FRONTEND-ANGULAR:/app
+      - /app/node_modules
+    ports:
+      # Host 4300 -> container 4200 (evita conflito com o proway, que usa 4200)
+      - "4300:4200"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - admin-java
+      - api
+
+  # ngrok como serviço: sobe junto com o compose e reinicia sozinho (túnel automático).
+  # Aponta pro frontend pela REDE INTERNA do Docker (porta interna 4200, não a 4300 do host).
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: bus_ngrok
+    restart: unless-stopped
+    command: http --url=combinative-rita-nonconspiratorial.ngrok-free.dev frontend:4200
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    depends_on:
+      - frontend
+
+volumes:
+  mariadb_data:

@@ -1,0 +1,49 @@
+<!-- Popup centralizado de cookies -->
+<div class="overlay" (click)="fecharPainel()">
+  <div class="popup" (click)="$event.stopPropagation()">
+    <h2 class="titulo">Configurações de Cookies</h2>
+    <p class="subtitulo">Escolha quais cookies você deseja permitir neste site.</p>
+
+    <label class="linha">
+      <span class="texto">
+        <b>Cookies Funcionais</b>
+        <small>Essenciais para o funcionamento do site.</small>
+      </span>
+      <span class="switch">
+        <input type="checkbox" [(ngModel)]="cookiesFuncionais" />
+        <span class="slider"></span>
+      </span>
+    </label>
+
+    <label class="linha">
+      <span class="texto">
+        <b>Cookies Analíticos</b>
+        <small>Ajudam a entender como o site é usado.</small>
+      </span>
+      <span class="switch">
+        <input type="checkbox" [(ngModel)]="cookiesAnaliticos" />
+        <span class="slider"></span>
+      </span>
+    </label>
+
+    <label class="linha">
+      <span class="texto">
+        <b>Cookies de Marketing</b>
+        <small>Usados para exibir anúncios relevantes.</small>
+      </span>
+      <span class="switch">
+        <input type="checkbox" [(ngModel)]="cookiesMarketing" />
+        <span class="slider"></span>
+      </span>
+    </label>
+
+    <div class="acoes">
+      <button type="button" (click)="salvarPreferencias()" class="btn-salvar">
+        Salvar Preferências
+      </button>
+      <button type="button" (click)="fecharPainel()" class="btn-fechar">
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>
